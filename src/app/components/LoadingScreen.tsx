@@ -23,14 +23,14 @@ export default function LoadingScreen() {
       className={`fixed inset-0 z-50 flex flex-col items-center justify-center transition-opacity duration-600 ${
         fadeOut ? "opacity-0" : "opacity-100"
       }`}
-      style={{ background: "#041020" }}
+      style={{ background: "#0A0A0A" }}
     >
       {/* Glow effect behind logo */}
       <div
         className="absolute h-64 w-64 rounded-full animate-pulse"
         style={{
           background:
-            "radial-gradient(circle, rgba(1,253,254,0.15) 0%, rgba(91,47,184,0.1) 50%, transparent 70%)",
+            "radial-gradient(circle, rgba(220,0,0,0.15) 0%, rgba(139,0,0,0.1) 50%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
@@ -38,13 +38,13 @@ export default function LoadingScreen() {
       {/* Logo */}
       <div className="relative animate-logo-entrance">
         <Image
-          src="/logo-vintia.png"
-          alt="Vintia Logo"
+          src="/logo-domitech.png"
+          alt="Domitech Logo"
           width={180}
           height={180}
           priority
           style={{
-            filter: "drop-shadow(0 0 30px rgba(1,253,254,0.3))",
+            filter: "drop-shadow(0 0 30px rgba(220,0,0,0.3))",
           }}
         />
       </div>
@@ -58,7 +58,7 @@ export default function LoadingScreen() {
           className="h-full animate-loading-bar rounded-full"
           style={{
             background:
-              "linear-gradient(90deg, #013795, #01FDFE, #5B2FB8)",
+              "linear-gradient(90deg, #DC0000, #FF0000, #8B0000)",
           }}
         />
       </div>

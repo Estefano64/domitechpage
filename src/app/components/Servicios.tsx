@@ -1,104 +1,112 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import Image from "next/image";
 
 interface Service {
   id: string;
   title: string;
   short: string;
   description: string;
-  image: string;
+  icon: React.ReactNode;
 }
 
 const SERVICES: Service[] = [
   {
-    id: "desarrollo-software",
-    title: "Desarrollo de Software",
-    short: "Software",
-    description:
-      "Optimiza la gestión de tu negocio con software a la medida. Desarrollamos soluciones personalizadas para mejorar la eficiencia, automatizar procesos y potenciar tu productividad. Nuestro equipo de expertos diseña herramientas digitales adaptadas a las necesidades de tu empresa, asegurando un alto rendimiento y escalabilidad.",
-    image: "/servicesimg/desarrollo-software.svg",
-  },
-  {
-    id: "diseno-web",
-    title: "Diseño Web",
+    id: "desarrollo-web",
+    title: "Desarrollo Web",
     short: "Web",
     description:
-      "Creación de sitios web modernos, rápidos y optimizados. Diseñamos y desarrollamos páginas web a la medida de tus necesidades, enfocándonos en la experiencia del usuario, el rendimiento y la seguridad. Ya sea un sitio corporativo, un eCommerce o una plataforma personalizada, garantizamos un desarrollo eficiente y adaptable a todos los dispositivos.",
-    image: "/servicesimg/diseno-web.svg",
+      "Creamos páginas web modernas, rápidas y optimizadas para tu negocio. Desde sitios corporativos hasta landing pages de alta conversión, diseñamos experiencias digitales que generan resultados. Responsive, seguros y fáciles de administrar.",
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
   },
   {
-    id: "desarrollo-movil",
-    title: "Desarrollo Móvil",
-    short: "Móvil",
+    id: "tiendas-online",
+    title: "Tiendas Online (Shopify & E-commerce)",
+    short: "E-commerce",
     description:
-      "Lleva tu negocio a la palma de la mano de tus clientes con una app móvil intuitiva, funcional y optimizada. Diseñamos y desarrollamos aplicaciones para iOS y Android, asegurando una experiencia de usuario fluida y atractiva.",
-    image: "/servicesimg/desarrollo-movil.svg",
+      "Lanza tu tienda online y comienza a vender 24/7. Configuramos tiendas en Shopify, WooCommerce y plataformas personalizadas con pasarelas de pago, gestión de inventario y diseño optimizado para conversión. Tu negocio sin límites físicos.",
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+      </svg>
+    ),
   },
   {
-    id: "diseno-ux-ui",
-    title: "Diseño UX/UI",
-    short: "UX/UI",
+    id: "diseno-grafico",
+    title: "Diseño Gráfico",
+    short: "Diseño",
     description:
-      "Cautiva a tus usuarios con un diseño UX/UI que transforma la experiencia digital. Creamos interfaces atractivas, intuitivas y funcionales que mejoran la navegación y optimizan la conversión. Un diseño bien pensado no solo embellece tu sitio o app, sino que también mejora la retención y fidelización de clientes.",
-    image: "/servicesimg/diseno-ux-ui.svg",
+      "Flyers, banners, posts para redes sociales, brochures y todo el material gráfico que tu marca necesita. Diseños profesionales que comunican tu mensaje de forma clara, atractiva y alineada con tu identidad visual. Listo para imprimir o publicar.",
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+      </svg>
+    ),
   },
   {
-    id: "optimizacion-seo",
-    title: "Optimización SEO",
-    short: "SEO",
+    id: "edicion-video",
+    title: "Edición de Video",
+    short: "Video",
     description:
-      "Impulsa tu negocio al siguiente nivel con nuestro servicio de SEO. Aumenta tu visibilidad en Google y otros buscadores, atrae más tráfico orgánico a tu sitio web y convierte a más visitantes en clientes. Con nosotros, obtendrás un mayor retorno de inversión y consolidarás tu presencia online a largo plazo.",
-    image: "/servicesimg/optimizacion-seo.svg",
+      "Transformamos tu contenido en videos profesionales que captan la atención. Edición para redes sociales, publicidad, testimoniales, reels y YouTube. Efectos visuales, motion graphics, subtítulos y música que hacen destacar tu mensaje.",
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+      </svg>
+    ),
+  },
+  {
+    id: "redes-sociales",
+    title: "Gestión de Redes Sociales",
+    short: "Social Media",
+    description:
+      "Creamos y gestionamos tus perfiles en Facebook, Instagram, TikTok, LinkedIn y más. Desde la configuración inicial hasta la creación de contenido estratégico, programación de posts y análisis de métricas. Construimos tu comunidad digital.",
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+      </svg>
+    ),
+  },
+  {
+    id: "google-maps",
+    title: "Google Maps & Google My Business",
+    short: "Google Maps",
+    description:
+      "Pon tu negocio en el mapa. Configuramos y optimizamos tu ficha de Google My Business para que tus clientes te encuentren fácilmente. Gestión de reseñas, fotos, horarios y toda la información que impulsa tu visibilidad local.",
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      </svg>
+    ),
   },
   {
     id: "marketing-digital",
     title: "Marketing Digital",
     short: "Marketing",
     description:
-      "Creamos y gestionamos estrategias digitales a medida que combinan creatividad, análisis y ejecución. Nuestro enfoque abarca redes sociales, medios pagados, diseño visual y gestión de comunidades, garantizando una presencia coherente, atractiva y orientada a resultados.",
-    image: "/servicesimg/marketing-digital.svg",
+      "Estrategias digitales completas que generan resultados medibles. Campañas en redes sociales, Google Ads, content marketing y automatización. Aumentamos tu visibilidad, atraemos clientes potenciales y mejoramos tu retorno de inversión.",
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
+      </svg>
+    ),
   },
   {
-    id: "community-manager",
-    title: "Community Manager",
-    short: "Community",
+    id: "optimizacion-seo",
+    title: "Optimización SEO",
+    short: "SEO",
     description:
-      "Haz que tu marca brille en redes sociales con una gestión profesional y estratégica. Creamos contenido de valor, respondemos a tu comunidad y analizamos métricas para mejorar el rendimiento de tus plataformas. Con una gestión efectiva, transformarás seguidores en clientes leales.",
-    image: "/servicesimg/community-manager.svg",
-  },
-  {
-    id: "branding",
-    title: "Branding",
-    short: "Branding",
-    description:
-      "Dale a tu marca la identidad que merece con una estrategia de branding poderosa. Desde la creación de logotipos hasta la definición de una personalidad única, nos encargamos de construir una imagen sólida y memorable. Desarrollamos la voz, los valores y la estética de tu marca.",
-    image: "/servicesimg/branding.svg",
-  },
-  {
-    id: "email-marketing",
-    title: "E-mail Marketing",
-    short: "Email",
-    description:
-      "Transforma tu lista de correos en una poderosa herramienta de conversión. Diseñamos campañas de email marketing personalizadas que fidelizan clientes y aumentan las ventas. Utilizamos estrategias de automatización, segmentación y contenido atractivo para garantizar que tus mensajes lleguen a la audiencia correcta.",
-    image: "/servicesimg/email-marketing.svg",
-  },
-  {
-    id: "produccion-foto-video",
-    title: "Producción de Fotos y Videos",
-    short: "Foto & Video",
-    description:
-      "Haz que tu marca cobre vida con contenido audiovisual de alto impacto. Producimos fotografías y videos profesionales que reflejan la esencia de tu negocio y captan la atención de tu audiencia. Desde sesiones de producto hasta videos promocionales.",
-    image: "/servicesimg/produccion-foto-video.svg",
-  },
-  {
-    id: "paid-media",
-    title: "Paid Media",
-    short: "Paid Media",
-    description:
-      "Gestionamos tus campañas publicitarias en Meta Ads, Google Ads, TikTok Ads y LinkedIn Ads. Optimizamos cada peso invertido para maximizar tu alcance, generar leads cualificados y aumentar tus ventas con estrategias basadas en datos.",
-    image: "/servicesimg/paid-media.svg",
+      "Mejora tu posicionamiento en Google y atrae tráfico orgánico de calidad. Optimizamos tu sitio web, creamos contenido estratégico y trabajamos en la autoridad de tu dominio. Resultados sostenibles que aumentan tus ventas.",
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+      </svg>
+    ),
   },
 ];
 
@@ -120,7 +128,7 @@ function Particle({ delay, x, size }: { delay: number; x: number; size: number }
         height: size,
         left: `${x}%`,
         bottom: "-10px",
-        background: "radial-gradient(circle, rgba(1,253,254,0.4), transparent)",
+        background: "radial-gradient(circle, rgba(220,0,0,0.4), transparent)",
         animationDelay: `${delay}s`,
       }}
     />
@@ -209,21 +217,37 @@ export default function Servicios() {
       <section
         id="servicios"
         className="relative py-16 sm:py-20 overflow-hidden"
-        style={{ background: "#041020" }}
+        style={{ background: "#0A0A0A" }}
       >
-        {/* Ambient glows */}
+        {/* Ambient glows - más intensos y animados */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none"
+          className="absolute top-1/4 right-0 w-[700px] h-[500px] pointer-events-none animate-pulse-slow"
           style={{
-            background: "radial-gradient(ellipse, #5B2FB8 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, #DC0000 0%, #8B0000 30%, transparent 70%)",
+            filter: "blur(120px)",
+            opacity: 0.2,
+          }}
+        />
+        <div
+          className="absolute bottom-1/4 left-0 w-[600px] h-[400px] pointer-events-none animate-pulse-slower"
+          style={{
+            background: "radial-gradient(ellipse, #FF4444 0%, #DC0000 30%, transparent 70%)",
             filter: "blur(100px)",
-            opacity: 0.07,
+            opacity: 0.18,
+          }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none animate-spin-very-slow"
+          style={{
+            background: "conic-gradient(from 0deg, transparent, #DC0000, transparent 180deg, #8B0000, transparent)",
+            filter: "blur(150px)",
+            opacity: 0.12,
           }}
         />
         <div
           className="absolute top-0 right-0 w-[300px] h-[300px] pointer-events-none"
           style={{
-            background: "radial-gradient(circle, #01FDFE 0%, transparent 70%)",
+            background: "radial-gradient(circle, #DC0000 0%, transparent 70%)",
             filter: "blur(80px)",
             opacity: 0.04,
           }}
@@ -241,7 +265,7 @@ export default function Servicios() {
           <div className="flex justify-center mb-3">
             <span
               className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-              style={{ color: "#01FDFE" }}
+              style={{ color: "#DC0000" }}
             >
               Lo que hacemos
             </span>
@@ -251,7 +275,7 @@ export default function Servicios() {
             <span
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: "linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB)",
+                backgroundImage: "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
               }}
             >
               SERVICIOS
@@ -259,7 +283,7 @@ export default function Servicios() {
           </h2>
           <div
             className="mx-auto mt-4 mb-6 h-[2px] w-12"
-            style={{ background: "linear-gradient(90deg, #01FDFE, #5B2FB8)" }}
+            style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
           />
           <p className="mx-auto max-w-xl text-center text-sm leading-6 text-white/40 sm:text-base font-[family-name:var(--font-open-sans)]">
             Te ofrecemos los servicios esenciales para hacer crecer tu negocio y
@@ -273,7 +297,7 @@ export default function Servicios() {
               className="absolute -inset-[1px] rounded-2xl animate-[borderGlow_4s_ease-in-out_infinite] pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB, #013795, #01FDFE)",
+                  "linear-gradient(135deg, #DC0000, #8B0000, #FF4444, #DC0000, #DC0000)",
                 backgroundSize: "300% 300%",
                 opacity: 0.5,
               }}
@@ -283,7 +307,7 @@ export default function Servicios() {
               className="absolute -inset-[1px] rounded-2xl animate-[borderGlow_4s_ease-in-out_infinite] pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB, #013795, #01FDFE)",
+                  "linear-gradient(135deg, #DC0000, #8B0000, #FF4444, #DC0000, #DC0000)",
                 backgroundSize: "300% 300%",
                 opacity: 0.25,
                 filter: "blur(12px)",
@@ -301,10 +325,10 @@ export default function Servicios() {
               {/* Prev */}
               <button
                 onClick={() => scrollByCard(-1)}
-                className="absolute left-1.5 sm:left-3 top-1/2 z-10 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full transition-all duration-300 hover:border-[#01FDFE]/40 hover:shadow-[0_0_15px_rgba(1,253,254,0.15)]"
+                className="absolute left-1.5 sm:left-3 top-1/2 z-10 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full transition-all duration-300 hover:border-[#DC0000]/40 hover:shadow-[0_0_15px_rgba(220,0,0,0.15)]"
                 style={{
-                  background: "rgba(4, 16, 32, 0.8)",
-                  border: "1px solid rgba(1, 253, 254, 0.15)",
+                  background: "rgba(10, 10, 10, 0.8)",
+                  border: "1px solid rgba(220, 0, 0, 0.15)",
                 }}
                 aria-label="Anterior"
               >
@@ -316,10 +340,10 @@ export default function Servicios() {
               {/* Next */}
               <button
                 onClick={() => scrollByCard(1)}
-                className="absolute right-1.5 sm:right-3 top-1/2 z-10 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full transition-all duration-300 hover:border-[#01FDFE]/40 hover:shadow-[0_0_15px_rgba(1,253,254,0.15)]"
+                className="absolute right-1.5 sm:right-3 top-1/2 z-10 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full transition-all duration-300 hover:border-[#DC0000]/40 hover:shadow-[0_0_15px_rgba(220,0,0,0.15)]"
                 style={{
-                  background: "rgba(4, 16, 32, 0.8)",
-                  border: "1px solid rgba(1, 253, 254, 0.15)",
+                  background: "rgba(10, 10, 10, 0.8)",
+                  border: "1px solid rgba(220, 0, 0, 0.15)",
                 }}
                 aria-label="Siguiente"
               >
@@ -358,21 +382,17 @@ export default function Servicios() {
                       }}
                       className="service-card group relative w-full overflow-hidden rounded-xl focus:outline-none"
                     >
-                      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl">
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
-                          draggable={false}
-                        />
+                      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gradient-to-br from-[#1a0505] via-[#0A0A0A] to-[#1a0000] flex items-center justify-center">
+                        <div className="w-1/2 h-1/2 text-[#DC0000] transition-all duration-700 group-hover:scale-110 group-hover:text-[#FF4444] group-hover:drop-shadow-[0_0_20px_rgba(220,0,0,0.6)]">
+                          {service.icon}
+                        </div>
 
                         {/* Animated border glow on hover */}
                         <div
                           className="absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"
                           style={{
                             boxShadow:
-                              "inset 0 0 30px rgba(1,253,254,0.1), 0 0 40px rgba(91,47,184,0.15), 0 0 80px rgba(1,253,254,0.05)",
+                              "inset 0 0 30px rgba(220,0,0,0.1), 0 0 40px rgba(139,0,0,0.15), 0 0 80px rgba(220,0,0,0.05)",
                           }}
                         />
 
@@ -381,7 +401,7 @@ export default function Servicios() {
                           className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                           style={{
                             background:
-                              "linear-gradient(135deg, rgba(1,253,254,0.08) 0%, rgba(91,47,184,0.15) 50%, rgba(253,103,235,0.08) 100%)",
+                              "linear-gradient(135deg, rgba(220,0,0,0.08) 0%, rgba(139,0,0,0.15) 50%, rgba(253,103,235,0.08) 100%)",
                           }}
                         />
 
@@ -402,15 +422,15 @@ export default function Servicios() {
                           <div className="flex items-center gap-1.5 mt-2 opacity-0 translate-y-3 transition-all duration-400 group-hover:opacity-100 group-hover:translate-y-0">
                             <span
                               className="h-[1px] w-5 transition-all duration-500 group-hover:w-8"
-                              style={{ background: "#01FDFE" }}
+                              style={{ background: "#DC0000" }}
                             />
                             <span
                               className="text-[10px] font-semibold tracking-wider uppercase font-[family-name:var(--font-montserrat)]"
-                              style={{ color: "#01FDFE" }}
+                              style={{ color: "#DC0000" }}
                             >
                               Explorar
                             </span>
-                            <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="#01FDFE" strokeWidth={2}>
+                            <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="#DC0000" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
                           </div>
@@ -421,7 +441,7 @@ export default function Servicios() {
                           className="absolute top-0 right-0 w-12 h-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"
                           style={{
                             background:
-                              "linear-gradient(225deg, rgba(1,253,254,0.2) 0%, transparent 70%)",
+                              "linear-gradient(225deg, rgba(220,0,0,0.2) 0%, transparent 70%)",
                           }}
                         />
                       </div>
@@ -444,7 +464,7 @@ export default function Servicios() {
           {/* Backdrop */}
           <div
             className="absolute inset-0 animate-[fadeIn_0.2s_ease-out]"
-            style={{ background: "rgba(4, 16, 32, 0.92)", backdropFilter: "blur(12px)" }}
+            style={{ background: "rgba(10, 10, 10, 0.92)", backdropFilter: "blur(12px)" }}
           />
 
           {/* Modal container */}
@@ -452,8 +472,8 @@ export default function Servicios() {
             className="relative z-10 w-full max-w-5xl animate-[scaleIn_0.3s_ease-out] overflow-hidden rounded-2xl"
             style={{
               background: "linear-gradient(160deg, #0c1a30, #081428)",
-              border: "1px solid rgba(1, 253, 254, 0.1)",
-              boxShadow: "0 0 80px rgba(91,47,184,0.15), 0 0 40px rgba(1,253,254,0.05)",
+              border: "1px solid rgba(220, 0, 0, 0.1)",
+              boxShadow: "0 0 80px rgba(139,0,0,0.15), 0 0 40px rgba(220,0,0,0.05)",
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -461,7 +481,7 @@ export default function Servicios() {
             <div
               className="absolute top-0 left-0 right-0 h-[1px] animate-glow-pulse"
               style={{
-                background: "linear-gradient(90deg, transparent, #01FDFE, #5B2FB8, #FD67EB, transparent)",
+                background: "linear-gradient(90deg, transparent, #DC0000, #8B0000, #FF4444, transparent)",
               }}
             />
 
@@ -469,7 +489,7 @@ export default function Servicios() {
             <div className="flex items-center justify-between px-5 py-4 sm:px-8">
               <span
                 className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-                style={{ color: "#01FDFE" }}
+                style={{ color: "#DC0000" }}
               >
                 Nuestros Servicios
               </span>
@@ -490,22 +510,19 @@ export default function Servicios() {
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Image side */}
               <div
-                className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[380px] overflow-hidden"
+                className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[380px] overflow-hidden flex items-center justify-center"
                 style={{
-                  background: "linear-gradient(135deg, rgba(1,55,149,0.12), rgba(91,47,184,0.12))",
+                  background: "linear-gradient(135deg, rgba(1,55,149,0.12), rgba(139,0,0,0.12))",
                 }}
               >
-                <Image
-                  src={SERVICES[selected].image}
-                  alt={SERVICES[selected].title}
-                  fill
-                  className="object-contain p-10 animate-[fadeIn_0.4s_ease-out]"
-                />
+                <div className="w-1/2 h-1/2 text-[#DC0000] animate-[fadeIn_0.4s_ease-out] drop-shadow-[0_0_30px_rgba(220,0,0,0.5)]">
+                  {SERVICES[selected].icon}
+                </div>
                 {/* Glow behind image */}
                 <div
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 pointer-events-none"
                   style={{
-                    background: "radial-gradient(circle, rgba(1,253,254,0.12), transparent 70%)",
+                    background: "radial-gradient(circle, rgba(220,0,0,0.12), transparent 70%)",
                     filter: "blur(40px)",
                   }}
                 />
@@ -518,7 +535,7 @@ export default function Servicios() {
                 </h3>
                 <div
                   className="h-[2px] w-10 mb-5 animate-[slideRight_0.5s_ease-out]"
-                  style={{ background: "linear-gradient(90deg, #01FDFE, #5B2FB8)" }}
+                  style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
                 />
                 <p className="text-sm leading-7 text-white/40 mb-8 font-[family-name:var(--font-open-sans)] animate-[slideRight_0.5s_ease-out]">
                   {SERVICES[selected].description}
@@ -543,7 +560,7 @@ export default function Servicios() {
             {/* Bottom services bar */}
             <div
               className="px-4 py-4 overflow-x-auto"
-              style={{ background: "rgba(4, 16, 32, 0.9)", borderTop: "1px solid rgba(1,253,254,0.06)" }}
+              style={{ background: "rgba(10, 10, 10, 0.9)", borderTop: "1px solid rgba(220,0,0,0.06)" }}
             >
               <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 sm:gap-x-5">
                 {SERVICES.map((s, i) => (
@@ -552,7 +569,7 @@ export default function Servicios() {
                     onClick={() => setSelected(i)}
                     className={`whitespace-nowrap text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 font-[family-name:var(--font-montserrat)] ${
                       i === selected
-                        ? "text-[#01FDFE] drop-shadow-[0_0_6px_rgba(1,253,254,0.4)]"
+                        ? "text-[#DC0000] drop-shadow-[0_0_6px_rgba(220,0,0,0.4)]"
                         : "text-white/25 hover:text-white/50"
                     }`}
                   >

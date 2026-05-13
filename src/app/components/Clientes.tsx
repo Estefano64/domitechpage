@@ -18,14 +18,21 @@ export default function Clientes() {
     <section
       id="clientes"
       className="relative py-16 sm:py-20 overflow-hidden"
-      style={{ background: "#041020" }}
+      style={{ background: "#0A0A0A" }}
     >
-      {/* Ambient glow */}
+      {/* Ambient glows - mejorados */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] opacity-8 pointer-events-none"
+        className="absolute top-0 left-1/4 w-[550px] h-[400px] opacity-18 pointer-events-none animate-pulse-slow"
         style={{
-          background: "radial-gradient(ellipse, #5B2FB8 0%, transparent 70%)",
-          filter: "blur(100px)",
+          background: "radial-gradient(ellipse, #DC0000 0%, #8B0000 40%, transparent 70%)",
+          filter: "blur(120px)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 right-1/4 w-[500px] h-[400px] opacity-16 pointer-events-none animate-pulse-slower"
+        style={{
+          background: "radial-gradient(ellipse, #FF4444 0%, #DC0000 30%, transparent 70%)",
+          filter: "blur(110px)",
         }}
       />
 
@@ -34,7 +41,7 @@ export default function Clientes() {
         <div className="flex justify-center mb-3">
           <span
             className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-            style={{ color: "#01FDFE" }}
+            style={{ color: "#DC0000" }}
           >
             Confían en nosotros
           </span>
@@ -45,7 +52,7 @@ export default function Clientes() {
             className="bg-clip-text text-transparent"
             style={{
               backgroundImage:
-                "linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB)",
+                "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
             }}
           >
             CLIENTES
@@ -53,7 +60,7 @@ export default function Clientes() {
         </h2>
         <div
           className="mx-auto mt-4 mb-10 h-[2px] w-12"
-          style={{ background: "linear-gradient(90deg, #01FDFE, #5B2FB8)" }}
+          style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
         />
       </div>
 
@@ -64,14 +71,14 @@ export default function Clientes() {
           className="absolute top-0 left-0 bottom-0 w-24 sm:w-40 z-10 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to right, #041020, transparent)",
+              "linear-gradient(to right, #0A0A0A, transparent)",
           }}
         />
         <div
           className="absolute top-0 right-0 bottom-0 w-24 sm:w-40 z-10 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to left, #041020, transparent)",
+              "linear-gradient(to left, #0A0A0A, transparent)",
           }}
         />
 
@@ -88,17 +95,17 @@ export default function Clientes() {
                   style={{
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(255,255,255,0.08)",
-                    boxShadow: "0 0 15px rgba(1, 253, 254, 0.05), inset 0 1px 0 rgba(255,255,255,0.05)",
+                    boxShadow: "0 0 15px rgba(220, 0, 0, 0.05), inset 0 1px 0 rgba(255,255,255,0.05)",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.25)";
-                    e.currentTarget.style.background = "rgba(1, 253, 254, 0.06)";
-                    e.currentTarget.style.boxShadow = "0 0 35px rgba(1, 253, 254, 0.12), inset 0 1px 0 rgba(1, 253, 254, 0.1)";
+                    e.currentTarget.style.borderColor = "rgba(220, 0, 0, 0.25)";
+                    e.currentTarget.style.background = "rgba(220, 0, 0, 0.06)";
+                    e.currentTarget.style.boxShadow = "0 0 35px rgba(220, 0, 0, 0.12), inset 0 1px 0 rgba(220, 0, 0, 0.1)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
                     e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-                    e.currentTarget.style.boxShadow = "0 0 15px rgba(1, 253, 254, 0.05), inset 0 1px 0 rgba(255,255,255,0.05)";
+                    e.currentTarget.style.boxShadow = "0 0 15px rgba(220, 0, 0, 0.05), inset 0 1px 0 rgba(255,255,255,0.05)";
                   }}
                 >
                   <img

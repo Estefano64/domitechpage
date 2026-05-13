@@ -3,17 +3,14 @@
 import { useState } from "react";
 
 const servicios = [
-  "Desarrollo de Software",
-  "Diseño Web",
-  "Desarrollo Móvil",
-  "Diseño UX/UI",
-  "Optimización SEO",
+  "Desarrollo Web",
+  "Tiendas Online (Shopify & E-commerce)",
+  "Diseño Gráfico",
+  "Edición de Video",
+  "Gestión de Redes Sociales",
+  "Google Maps & Google My Business",
   "Marketing Digital",
-  "Branding e Identidad",
-  "Consultoría TI",
-  "E-Commerce",
-  "Community Management",
-  "Producción Audiovisual",
+  "Optimización SEO",
 ];
 
 export default function Contactanos() {
@@ -37,7 +34,7 @@ export default function Contactanos() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `Hola Vintia Digital! Soy ${form.nombres} de ${form.empresa}. Estoy interesado en: ${form.servicio}. ${form.idea}`;
+    const msg = `Hola Domitech Solutions! Soy ${form.nombres} de ${form.empresa}. Estoy interesado en: ${form.servicio}. ${form.idea}`;
     window.open(
       `https://wa.me/51915961315?text=${encodeURIComponent(msg)}`,
       "_blank"
@@ -45,27 +42,34 @@ export default function Contactanos() {
   };
 
   const inputBase =
-    "w-full bg-transparent border-b border-white/15 pb-1.5 pt-2.5 text-[13px] text-white placeholder-white/30 outline-none transition-all duration-300 focus:border-[#01FDFE] font-[family-name:var(--font-open-sans)]";
+    "w-full bg-transparent border-b border-white/15 pb-1.5 pt-2.5 text-[13px] text-white placeholder-white/30 outline-none transition-all duration-300 focus:border-[#DC0000] font-[family-name:var(--font-open-sans)]";
 
   return (
     <section
       id="contactanos"
       className="relative py-12 sm:py-14 overflow-hidden"
-      style={{ background: "#041020" }}
+      style={{ background: "#0A0A0A" }}
     >
-      {/* Ambient glows */}
+      {/* Ambient glows - más intensos */}
       <div
-        className="absolute top-1/4 left-0 w-[400px] h-[400px] opacity-8 pointer-events-none"
+        className="absolute top-1/4 left-0 w-[500px] h-[500px] opacity-20 pointer-events-none animate-pulse-slow"
         style={{
-          background: "radial-gradient(circle, #5B2FB8 0%, transparent 70%)",
+          background: "radial-gradient(circle, #DC0000 0%, #8B0000 40%, transparent 70%)",
+          filter: "blur(120px)",
+        }}
+      />
+      <div
+        className="absolute bottom-1/4 right-0 w-[450px] h-[450px] opacity-18 pointer-events-none animate-pulse-slower"
+        style={{
+          background: "radial-gradient(circle, #FF4444 0%, #DC0000 30%, transparent 70%)",
           filter: "blur(100px)",
         }}
       />
       <div
-        className="absolute bottom-1/4 right-0 w-[300px] h-[300px] opacity-6 pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-10 pointer-events-none animate-spin-very-slow"
         style={{
-          background: "radial-gradient(circle, #01FDFE 0%, transparent 70%)",
-          filter: "blur(80px)",
+          background: "conic-gradient(from 0deg, transparent, #DC0000, transparent)",
+          filter: "blur(130px)",
         }}
       />
 
@@ -74,7 +78,7 @@ export default function Contactanos() {
         <div className="flex justify-center mb-3">
           <span
             className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-            style={{ color: "#01FDFE" }}
+            style={{ color: "#DC0000" }}
           >
             Hablemos
           </span>
@@ -85,7 +89,7 @@ export default function Contactanos() {
             className="bg-clip-text text-transparent"
             style={{
               backgroundImage:
-                "linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB)",
+                "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
             }}
           >
             NOS
@@ -93,7 +97,7 @@ export default function Contactanos() {
         </h2>
         <div
           className="mx-auto mt-3 mb-8 h-[2px] w-12"
-          style={{ background: "linear-gradient(90deg, #01FDFE, #5B2FB8)" }}
+          style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
         />
 
         {/* Two-column layout */}
@@ -103,12 +107,12 @@ export default function Contactanos() {
             <div
               className="relative rounded-2xl overflow-hidden"
               style={{
-                border: "1px solid rgba(1, 253, 254, 0.08)",
+                border: "1px solid rgba(220, 0, 0, 0.08)",
               }}
             >
               <img
                 src="/contactanos.webp"
-                alt="Vintia Digital - Contáctanos"
+                alt="Domitech Solutions - Contáctanos"
                 className="w-full h-auto object-cover"
               />
 
@@ -117,7 +121,7 @@ export default function Contactanos() {
                 className="absolute bottom-0 left-0 right-0 h-1/3"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(4,16,32,0.9), transparent)",
+                    "linear-gradient(to top, rgba(10,10,10,0.9), transparent)",
                 }}
               />
             </div>
@@ -128,21 +132,21 @@ export default function Contactanos() {
             >
               {[
                 {
-                  href: "https://www.instagram.com/vintiadigital",
+                  href: "https://www.instagram.com/domitechsolutions",
                   label: "Instagram",
                   icon: (
                     <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.25-2.5a1 1 0 110 2 1 1 0 010-2z" />
                   ),
                 },
                 {
-                  href: "https://www.facebook.com/vintiadigital",
+                  href: "https://www.facebook.com/domitechsolutions",
                   label: "Facebook",
                   icon: (
                     <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
                   ),
                 },
                 {
-                  href: "https://www.linkedin.com/company/vintiadigital",
+                  href: "https://www.linkedin.com/company/domitechsolutions",
                   label: "LinkedIn",
                   icon: (
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -157,20 +161,20 @@ export default function Contactanos() {
                   aria-label={s.label}
                   className="flex items-center justify-center h-11 w-11 rounded-lg transition-all duration-300 hover:scale-110"
                   style={{
-                    background: "linear-gradient(135deg, #5B2FB8, #013795)",
-                    boxShadow: "0 4px 15px rgba(91, 47, 184, 0.4)",
+                    background: "linear-gradient(135deg, #8B0000, #DC0000)",
+                    boxShadow: "0 4px 15px rgba(220, 0, 0, 0.4)",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background =
-                      "linear-gradient(135deg, #01FDFE, #5B2FB8)";
+                      "linear-gradient(135deg, #DC0000, #FF0000)";
                     e.currentTarget.style.boxShadow =
-                      "0 4px 20px rgba(1, 253, 254, 0.3)";
+                      "0 4px 20px rgba(220, 0, 0, 0.5)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background =
-                      "linear-gradient(135deg, #5B2FB8, #013795)";
+                      "linear-gradient(135deg, #8B0000, #DC0000)";
                     e.currentTarget.style.boxShadow =
-                      "0 4px 15px rgba(91, 47, 184, 0.4)";
+                      "0 4px 15px rgba(220, 0, 0, 0.4)";
                   }}
                 >
                   <svg
@@ -198,7 +202,7 @@ export default function Contactanos() {
                     className="text-2xl sm:text-3xl font-extrabold font-[family-name:var(--font-montserrat)]"
                     style={{
                       background:
-                        "linear-gradient(135deg, #01FDFE, #5B2FB8)",
+                        "linear-gradient(135deg, #DC0000, #8B0000)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                     }}
@@ -215,8 +219,8 @@ export default function Contactanos() {
             {/* Description */}
             <p className="text-[13px] leading-6 text-white/45 mb-5 font-[family-name:var(--font-open-sans)]">
               ¿Buscas llevar tu presencia en línea al siguiente nivel? En{" "}
-              <span className="font-semibold" style={{ color: "#01FDFE" }}>
-                Vintia Digital
+              <span className="font-semibold" style={{ color: "#DC0000" }}>
+                Domitech Solutions
               </span>
               , creamos experiencias digitales impactantes. Desde páginas web y
               aplicaciones móviles hasta estrategias de marketing y branding
@@ -321,7 +325,7 @@ export default function Contactanos() {
                 type="submit"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[12px] font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden cursor-pointer"
                 style={{
-                  background: "linear-gradient(135deg, #013795, #5B2FB8)",
+                  background: "linear-gradient(135deg, #DC0000, #8B0000)",
                 }}
               >
                 <span className="relative z-10 text-white">Enviar Mensaje</span>
@@ -341,13 +345,13 @@ export default function Contactanos() {
                 <div
                   className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   style={{
-                    background: "linear-gradient(135deg, #5B2FB8, #FD67EB)",
+                    background: "linear-gradient(135deg, #8B0000, #FF4444)",
                   }}
                 />
                 <div
                   className="absolute -inset-2 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-40"
                   style={{
-                    background: "linear-gradient(135deg, #01FDFE, #5B2FB8)",
+                    background: "linear-gradient(135deg, #DC0000, #FF0000)",
                   }}
                 />
               </button>

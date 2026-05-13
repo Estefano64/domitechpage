@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #041020;
+  --background: #0A0A0A;
   --foreground: #ffffff;
 
-  /* Vintia Brand Colors */
-  --azul-corporativo: #013795;
-  --purpura-intenso: #5B2FB8;
-  --azul-medianoche: #041020;
-  --cian-digital: #01FDFE;
-  --magenta-vibrante: #FD67EB;
+  /* Domitech Brand Colors */
+  --rojo-corporativo: #DC0000;
+  --rojo-oscuro: #8B0000;
+  --negro-profundo: #0A0A0A;
+  --rojo-brillante: #FF0000;
+  --rojo-intenso: #FF4444;
   --blanco-puro: #ffffff;
 }
 
@@ -25,7 +25,7 @@
 }
 
 body {
-  background: var(--azul-medianoche);
+  background: var(--negro-profundo);
   color: var(--foreground);
   font-family: var(--font-open-sans), "Open Sans", sans-serif;
 }
@@ -81,6 +81,98 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.7;
     filter: blur(30px);
   }
+}
+
+/* Animaciones para dar más vida */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse-slower {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes spin-very-slow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow-intense {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(220, 0, 0, 0.3), 0 0 40px rgba(220, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(220, 0, 0, 0.5), 0 0 60px rgba(220, 0, 0, 0.3), 0 0 80px rgba(220, 0, 0, 0.2);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-pulse-slower {
+  animation: pulse-slower 6s ease-in-out infinite;
+}
+
+.animate-spin-very-slow {
+  animation: spin-very-slow 30s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow-intense {
+  animation: glow-intense 2s ease-in-out infinite;
 }
 
 /* Modal animations */
@@ -159,7 +251,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: background 0.5s ease;
 }
 .service-card:hover::before {
-  background: linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB);
+  background: linear-gradient(135deg, #DC0000, #8B0000, #FF4444);
 }
 
 /* ─── Testimonial Stack Cards ─── */
@@ -195,17 +287,17 @@ h1, h2, h3, h4, h5, h6 {
 /* Permanent outer glow using accent variable */
 .testimonial-card {
   box-shadow:
-    0 0 20px color-mix(in srgb, var(--card-accent, #01FDFE) 12%, transparent),
-    0 0 50px color-mix(in srgb, var(--card-accent, #01FDFE) 6%, transparent),
+    0 0 20px color-mix(in srgb, var(--card-accent, #DC0000) 12%, transparent),
+    0 0 50px color-mix(in srgb, var(--card-accent, #DC0000) 6%, transparent),
     0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 /* Stronger glow on hover */
 .testimonial-card:hover {
-  border-color: color-mix(in srgb, var(--card-accent, #01FDFE) 35%, transparent);
+  border-color: color-mix(in srgb, var(--card-accent, #DC0000) 35%, transparent);
   box-shadow:
-    0 0 30px color-mix(in srgb, var(--card-accent, #01FDFE) 25%, transparent),
-    0 0 70px color-mix(in srgb, var(--card-accent, #01FDFE) 12%, transparent),
+    0 0 30px color-mix(in srgb, var(--card-accent, #DC0000) 25%, transparent),
+    0 0 70px color-mix(in srgb, var(--card-accent, #DC0000) 12%, transparent),
     0 12px 40px rgba(0, 0, 0, 0.6);
 }
 

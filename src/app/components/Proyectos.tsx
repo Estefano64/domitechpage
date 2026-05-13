@@ -13,108 +13,95 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Andes Ultra Trail",
-    category: "Desarrollo Web",
+    title: "HSEC Perú - Sistema de Certificación",
+    category: "Desarrollo Web Empresarial",
+    url: "https://hsec-peru.com/",
+    description:
+      "Desarrollo de plugin personalizado de WordPress para automatizar procesos de certificación empresarial en seguridad, salud ocupacional y medio ambiente. Incluye gestión de requisitos, validación UAT y reducción significativa del tiempo operativo del cliente.",
+    stats: [
+      { label: "Tiempo ahorrado", value: "65%" },
+      { label: "Certificaciones gestionadas", value: "500+" },
+      { label: "Satisfacción cliente", value: "5/5" },
+    ],
+    techs: ["WordPress", "PHP", "JavaScript", "MySQL"],
+  },
+  {
+    title: "Andes Ultra - Plataforma de Eventos",
+    category: "E-Commerce & Eventos",
     url: "https://andesultra.com/",
     description:
-      "Plataforma web completa para el evento de ultra trail más importante de los Andes. Incluye sistema de inscripción online, seguimiento GPS en tiempo real de corredores, galería multimedia y blog de noticias.",
+      "Desarrollo completo de sitio web con WordPress Bricks y plugin personalizado para formulario de inscripción a eventos deportivos. Sistema de gestión de participantes, automatización de registro y procesamiento de pagos online.",
     stats: [
-      { label: "Incremento tráfico", value: "+320%" },
-      { label: "Inscripciones online", value: "2.5K+" },
-      { label: "Tiempo de carga", value: "1.2s" },
+      { label: "Inscripciones", value: "2.8K+" },
+      { label: "Incremento ventas", value: "+340%" },
+      { label: "Tiempo de carga", value: "1.1s" },
     ],
-    techs: ["Next.js", "React", "Tailwind CSS", "Node.js"],
+    techs: ["WordPress", "PHP", "JavaScript", "PayPal API"],
   },
   {
-    title: "HSEC Perú",
-    category: "Sitio Corporativo",
-    url: "https://hsec-peru.com/",
-    description:
-      "Portal corporativo para consultora líder en seguridad, salud ocupacional y medio ambiente. Diseño profesional con sistema de cotizaciones online, catálogo de servicios y blog especializado en normativas HSEC.",
-    stats: [
-      { label: "Leads generados", value: "+280%" },
-      { label: "Consultas online", value: "1.8K+" },
-      { label: "Posicionamiento", value: "Top 5" },
-    ],
-    techs: ["WordPress", "PHP", "MySQL", "SEO"],
-  },
-  {
-    title: "TecnoNómadas",
-    category: "Blog Tecnológico",
+    title: "Tecnómadas - Catálogo Digital",
+    category: "E-Commerce Moderno",
     url: "https://www.tecnonomadas.net/",
     description:
-      "Plataforma de contenido tecnológico con diseño moderno, sistema de categorización avanzado, optimización SEO y newsletter automatizado. Enfoque en experiencia de lectura y velocidad de carga.",
+      "Catálogo web interactivo con integración de WhatsApp para ventas directas, búsqueda avanzada de productos, filtros dinámicos e integración de Google Maps para ubicación de tienda física. Arquitectura moderna con Node.js y React.",
     stats: [
-      { label: "Visitas/mes", value: "45K+" },
-      { label: "Tiempo en sitio", value: "4.2min" },
-      { label: "Suscriptores", value: "8K+" },
+      { label: "Conversión WhatsApp", value: "18.5%" },
+      { label: "Consultas mensuales", value: "1.2K+" },
+      { label: "Usuarios recurrentes", value: "45%" },
     ],
-    techs: ["Next.js", "MDX", "Tailwind CSS", "Vercel"],
+    techs: ["Node.js", "React", "WhatsApp API", "Google Maps"],
   },
   {
-    title: "Apple Store",
-    category: "E-Commerce",
-    url: "https://www.apple.com/",
+    title: "Consejo Psicológico - Sitio Corporativo",
+    category: "Sitio Web Profesional",
+    url: "https://consejopsicologico.com/",
     description:
-      "Referencia en diseño de experiencia de usuario para tienda online premium. Interfaz minimalista con animaciones fluidas, configurador de productos interactivo y proceso de compra optimizado.",
+      "Desarrollo de sitio web corporativo con botón de redirección a WhatsApp, widget integrado de reseñas de Google y formulario de contacto personalizado. Diseño profesional optimizado para conversión de leads en servicios de salud mental.",
     stats: [
-      { label: "Tasa conversión", value: "6.2%" },
-      { label: "UX Score", value: "98/100" },
-      { label: "Velocidad", value: "0.8s" },
+      { label: "Leads generados", value: "+285%" },
+      { label: "Citas agendadas", value: "850+" },
+      { label: "Tiempo en sitio", value: "3.8min" },
     ],
-    techs: ["React", "Swift", "Node.js", "CDN Global"],
+    techs: ["HTML5", "CSS3", "JavaScript", "Google Reviews API"],
   },
   {
-    title: "Dashboard Analytics",
-    category: "Plataforma",
-    url: "https://hsec-peru.com/",
+    title: "X Trail Series - Plataforma Digital",
+    category: "Marketing & Events",
+    url: "https://xtrailseries.com/",
     description:
-      "Panel de control en tiempo real con visualización de datos avanzada, reportes automatizados, KPIs personalizables y alertas inteligentes basadas en machine learning.",
+      "Plataforma web de inscripción automatizada para eventos deportivos con mejora de UX y reducción de carga operativa manual. Estrategia de contenidos multiplataforma y gestión de redes sociales para maximizar alcance del evento.",
     stats: [
-      { label: "Datos procesados", value: "10M+/día" },
-      { label: "Tiempo ahorro", value: "60%" },
-      { label: "Usuarios activos", value: "500+" },
+      { label: "Alcance digital", value: "150K+" },
+      { label: "Engagement", value: "+420%" },
+      { label: "Inscripciones online", value: "3.5K+" },
     ],
-    techs: ["React", "D3.js", "Python", "AWS"],
+    techs: ["WordPress", "Social Media APIs", "Google Analytics", "Mailchimp"],
   },
   {
-    title: "Landing Campaña",
+    title: "Landing Page - Campaña Digital",
     category: "Marketing Digital",
-    url: "https://www.tecnonomadas.net/",
+    url: "https://hsec-peru.com/",
     description:
-      "Landing page de alta conversión para campaña publicitaria con A/B testing, formularios optimizados, integración con email marketing y tracking avanzado de conversiones.",
+      "Landing page de alta conversión para campaña publicitaria con diseño enfocado en CTAs, formularios optimizados, integración con CRM y tracking avanzado de conversiones. A/B testing y optimización continua de rendimiento.",
     stats: [
-      { label: "Conversión", value: "12.5%" },
-      { label: "CTR anuncios", value: "8.3%" },
-      { label: "ROI campaña", value: "5.2x" },
+      { label: "Tasa conversión", value: "14.2%" },
+      { label: "CTR anuncios", value: "9.1%" },
+      { label: "ROI campaña", value: "6.3x" },
     ],
-    techs: ["HTML/CSS", "JavaScript", "Google Ads", "Mailchimp"],
+    techs: ["HTML/CSS", "JavaScript", "Google Ads", "Facebook Pixel"],
   },
   {
-    title: "Plataforma Educativa",
-    category: "EdTech",
-    url: "https://www.apple.com/",
-    description:
-      "LMS completo con sistema de videoconferencias, evaluaciones automatizadas, certificaciones digitales, gamificación y seguimiento del progreso del estudiante.",
-    stats: [
-      { label: "Estudiantes", value: "3K+" },
-      { label: "Cursos activos", value: "45" },
-      { label: "Tasa completado", value: "78%" },
-    ],
-    techs: ["Next.js", "PostgreSQL", "WebRTC", "Redis"],
-  },
-  {
-    title: "Sistema de Gestión",
-    category: "Software a Medida",
+    title: "Sistema de Gestión Académica",
+    category: "Software Empresarial",
     url: "https://andesultra.com/",
     description:
-      "ERP personalizado con módulos de facturación, inventario, RRHH y contabilidad. Integración con SUNAT, reportes fiscales automatizados y acceso multi-sede.",
+      "Sistema web para gestión de matrículas, notas, asistencia y reportes académicos. Incluye módulos para estudiantes, docentes y administración con roles personalizados y generación automática de certificados.",
     stats: [
-      { label: "Procesos auto.", value: "85%" },
-      { label: "Sedes conectadas", value: "12" },
-      { label: "Ahorro costos", value: "-40%" },
+      { label: "Estudiantes gestionados", value: "1.5K+" },
+      { label: "Tiempo ahorro admin", value: "55%" },
+      { label: "Satisfacción usuarios", value: "4.8/5" },
     ],
-    techs: ["Angular", ".NET", "SQL Server", "Azure"],
+    techs: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
   },
 ];
 
@@ -167,7 +154,7 @@ function ProjectCard({
       <div
         className="absolute -inset-[1px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
         style={{
-          background: "linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB)",
+          background: "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
           filter: "blur(1px)",
         }}
       />
@@ -205,7 +192,7 @@ function ProjectCard({
               style={{
                 background: "rgba(1, 253, 254, 0.15)",
                 border: "1px solid rgba(1, 253, 254, 0.5)",
-                color: "#01FDFE",
+                color: "#DC0000",
               }}
             >
               <svg
@@ -236,7 +223,7 @@ function ProjectCard({
             style={{
               background: "rgba(4, 16, 32, 0.8)",
               border: "1px solid rgba(1, 253, 254, 0.2)",
-              color: "#01FDFE",
+              color: "#DC0000",
               backdropFilter: "blur(8px)",
             }}
           >
@@ -246,14 +233,14 @@ function ProjectCard({
 
         {/* Info */}
         <div className="p-4">
-          <h3 className="text-sm font-bold text-white group-hover:text-[#01FDFE] transition-colors duration-300 font-[family-name:var(--font-montserrat)]">
+          <h3 className="text-sm font-bold text-white group-hover:text-[#DC0000] transition-colors duration-300 font-[family-name:var(--font-montserrat)]">
             {project.title}
           </h3>
           <div className="mt-2 flex items-center gap-2">
             <div
               className="h-[2px] w-0 group-hover:w-8 transition-all duration-500 rounded-full"
               style={{
-                background: "linear-gradient(90deg, #01FDFE, #5B2FB8)",
+                background: "linear-gradient(90deg, #DC0000, #8B0000)",
               }}
             />
             <span className="text-[11px] text-white/30 group-hover:text-white/50 transition-colors duration-300 font-[family-name:var(--font-open-sans)]">
@@ -311,7 +298,7 @@ function ProjectModal({
           className="absolute top-0 left-0 right-0 h-[2px] z-10"
           style={{
             background:
-              "linear-gradient(90deg, transparent, #01FDFE, #5B2FB8, #FD67EB, transparent)",
+              "linear-gradient(90deg, transparent, #DC0000, #8B0000, #FF4444, transparent)",
           }}
         />
 
@@ -356,11 +343,11 @@ function ProjectModal({
             >
               <span
                 className="h-1.5 w-1.5 rounded-full animate-pulse"
-                style={{ background: "#01FDFE" }}
+                style={{ background: "#DC0000" }}
               />
               <span
                 className="text-[10px] font-semibold tracking-[0.2em] uppercase font-[family-name:var(--font-montserrat)]"
-                style={{ color: "#01FDFE" }}
+                style={{ color: "#DC0000" }}
               >
                 {project.category}
               </span>
@@ -413,7 +400,7 @@ function ProjectModal({
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider transition-colors duration-200 hover:text-[#01FDFE]"
+                className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider transition-colors duration-200 hover:text-[#DC0000]"
                 style={{ color: "rgba(255,255,255,0.3)" }}
               >
                 <svg
@@ -450,7 +437,7 @@ function ProjectModal({
             <div className="lg:col-span-3">
               <h4
                 className="text-[11px] font-bold tracking-[0.15em] uppercase mb-2 font-[family-name:var(--font-montserrat)]"
-                style={{ color: "#01FDFE" }}
+                style={{ color: "#DC0000" }}
               >
                 Descripción del Proyecto
               </h4>
@@ -480,7 +467,7 @@ function ProjectModal({
             <div className="lg:col-span-2">
               <h4
                 className="text-[11px] font-bold tracking-[0.15em] uppercase mb-2 font-[family-name:var(--font-montserrat)]"
-                style={{ color: "#01FDFE" }}
+                style={{ color: "#DC0000" }}
               >
                 Resultados Clave
               </h4>
@@ -501,7 +488,7 @@ function ProjectModal({
                       className="text-base font-extrabold font-[family-name:var(--font-montserrat)]"
                       style={{
                         background:
-                          "linear-gradient(135deg, #01FDFE, #5B2FB8)",
+                          "linear-gradient(135deg, #DC0000, #8B0000)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                       }}
@@ -522,7 +509,7 @@ function ProjectModal({
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[12px] font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden relative"
               style={{
-                background: "linear-gradient(135deg, #013795, #5B2FB8)",
+                background: "linear-gradient(135deg, #DC0000, #8B0000)",
               }}
             >
               <span className="relative z-10 text-white">Visitar Sitio Web</span>
@@ -542,7 +529,7 @@ function ProjectModal({
               <div
                 className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 style={{
-                  background: "linear-gradient(135deg, #5B2FB8, #FD67EB)",
+                  background: "linear-gradient(135deg, #8B0000, #FF4444)",
                 }}
               />
             </a>
@@ -558,7 +545,7 @@ function ProjectModal({
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.4)";
-                e.currentTarget.style.color = "#01FDFE";
+                e.currentTarget.style.color = "#DC0000";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.15)";
@@ -584,19 +571,26 @@ export default function Proyectos() {
   return (
     <>
       <section id="proyectos" className="relative py-20 overflow-hidden">
-        {/* Background ambient glows */}
+        {/* Background ambient glows - mejorados */}
         <div
-          className="absolute top-1/4 right-0 w-[400px] h-[400px] opacity-10 pointer-events-none"
+          className="absolute top-1/4 right-0 w-[600px] h-[500px] opacity-20 pointer-events-none animate-pulse-slow"
           style={{
-            background: "radial-gradient(circle, #5B2FB8 0%, transparent 70%)",
+            background: "radial-gradient(circle, #DC0000 0%, #8B0000 40%, transparent 70%)",
+            filter: "blur(120px)",
+          }}
+        />
+        <div
+          className="absolute bottom-1/4 left-0 w-[500px] h-[400px] opacity-18 pointer-events-none animate-pulse-slower"
+          style={{
+            background: "radial-gradient(circle, #FF4444 0%, #DC0000 30%, transparent 70%)",
             filter: "blur(100px)",
           }}
         />
         <div
-          className="absolute bottom-1/4 left-0 w-[300px] h-[300px] opacity-8 pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] opacity-12 pointer-events-none animate-spin-very-slow"
           style={{
-            background: "radial-gradient(circle, #01FDFE 0%, transparent 70%)",
-            filter: "blur(80px)",
+            background: "conic-gradient(from 0deg, transparent, #DC0000, transparent 180deg, #8B0000, transparent)",
+            filter: "blur(140px)",
           }}
         />
 
@@ -606,7 +600,7 @@ export default function Proyectos() {
             <div className="flex justify-center mb-3">
               <span
                 className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-                style={{ color: "#01FDFE" }}
+                style={{ color: "#DC0000" }}
               >
                 Portafolio
               </span>
@@ -617,7 +611,7 @@ export default function Proyectos() {
               <span
                 className="bg-clip-text text-transparent"
                 style={{
-                  backgroundImage: "linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB)",
+                  backgroundImage: "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
                 }}
               >
                 PROYECTOS
@@ -626,7 +620,7 @@ export default function Proyectos() {
 
             <div
               className="mx-auto mt-4 mb-6 h-[2px] w-12"
-              style={{ background: "linear-gradient(90deg, #01FDFE, #5B2FB8)" }}
+              style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
             />
 
             <p className="mx-auto max-w-xl text-center text-sm leading-6 text-white/40 sm:text-base font-[family-name:var(--font-open-sans)]">
@@ -661,7 +655,7 @@ export default function Proyectos() {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.5)";
-                  e.currentTarget.style.color = "#01FDFE";
+                  e.currentTarget.style.color = "#DC0000";
                   e.currentTarget.style.background = "rgba(1, 253, 254, 0.1)";
                 }}
                 onMouseLeave={(e) => {
@@ -673,7 +667,7 @@ export default function Proyectos() {
                 <div
                   className="absolute -inset-3 rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"
                   style={{
-                    background: "linear-gradient(135deg, #01FDFE, #5B2FB8)",
+                    background: "linear-gradient(135deg, #DC0000, #8B0000)",
                   }}
                 />
                 <span className="relative z-10">Ver más proyectos</span>

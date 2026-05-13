@@ -14,31 +14,31 @@ const testimonials: Testimonial[] = [
     name: "Kuni 2005",
     role: "CEO de TechFlow",
     videoId: "7604546222401146130",
-    accent: "#01FDFE",
+    accent: "#DC0000",
   },
   {
     name: "Ana López",
     role: "Fundadora Studio X",
     videoId: "7604546222401146130",
-    accent: "#FD67EB",
+    accent: "#FF4444",
   },
   {
     name: "Carlos Ruiz",
     role: "CTO Innova",
     videoId: "7604546222401146130",
-    accent: "#5B2FB8",
+    accent: "#8B0000",
   },
   {
     name: "Global Corp",
     role: "Marketing Director",
     videoId: "7604546222401146130",
-    accent: "#013795",
+    accent: "#DC0000",
   },
   {
     name: "Next Level",
     role: "Startup Founder",
     videoId: "7604546222401146130",
-    accent: "#01FDFE",
+    accent: "#DC0000",
   },
 ];
 
@@ -175,20 +175,20 @@ export default function Testimonios() {
       <section
         id="testimonios"
         className="relative py-16 sm:py-20 overflow-hidden"
-        style={{ background: "#041020" }}
+        style={{ background: "#0A0A0A" }}
       >
         {/* Ambient glows */}
         <div
           className="absolute top-1/3 left-1/4 w-[400px] h-[400px] opacity-8 pointer-events-none"
           style={{
-            background: "radial-gradient(circle, #5B2FB8 0%, transparent 70%)",
+            background: "radial-gradient(circle, #8B0000 0%, transparent 70%)",
             filter: "blur(100px)",
           }}
         />
         <div
           className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] opacity-6 pointer-events-none"
           style={{
-            background: "radial-gradient(circle, #01FDFE 0%, transparent 70%)",
+            background: "radial-gradient(circle, #DC0000 0%, transparent 70%)",
             filter: "blur(80px)",
           }}
         />
@@ -198,7 +198,7 @@ export default function Testimonios() {
           <div className="flex justify-center mb-3">
             <span
               className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-              style={{ color: "#01FDFE" }}
+              style={{ color: "#DC0000" }}
             >
               Testimonios
             </span>
@@ -209,7 +209,7 @@ export default function Testimonios() {
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB)",
+                  "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
               }}
             >
               REALES
@@ -218,7 +218,7 @@ export default function Testimonios() {
           <div
             className="mx-auto mt-4 mb-6 h-[2px] w-12"
             style={{
-              background: "linear-gradient(90deg, #01FDFE, #5B2FB8)",
+              background: "linear-gradient(90deg, #DC0000, #8B0000)",
             }}
           />
           <p className="mx-auto max-w-xl text-center text-sm leading-6 text-white/40 sm:text-base font-[family-name:var(--font-open-sans)]">

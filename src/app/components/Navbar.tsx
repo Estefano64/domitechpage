@@ -38,7 +38,7 @@ export default function Navbar() {
       }}
     >
       {/* Glow line on top */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#01FDFE]/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#DC0000]/50 to-transparent" />
 
       {/* Animated glow effect behind navbar */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -46,44 +46,44 @@ export default function Navbar() {
           className="absolute -top-1 left-1/2 -translate-x-1/2 w-[60%] h-[2px] animate-glow-pulse"
           style={{
             background:
-              "linear-gradient(90deg, transparent, #01FDFE, #5B2FB8, #FD67EB, transparent)",
+              "linear-gradient(90deg, transparent, #DC0000, #8B0000, #FF4444, transparent)",
           }}
         />
         <div
           className="absolute -top-4 left-1/2 -translate-x-1/2 w-[40%] h-8 opacity-30"
           style={{
             background:
-              "radial-gradient(ellipse at center, #01FDFE 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, #DC0000 0%, transparent 70%)",
             filter: "blur(12px)",
           }}
         />
       </div>
 
       {/* Bottom border glow */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#5B2FB8]/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#8B0000]/30 to-transparent" />
 
       <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 shrink-0 group">
           <div className="relative">
             <Image
-              src="/logo-vintia.png"
-              alt="Vintia Digital"
-              width={36}
-              height={36}
+              src="/isologo-domitech.png"
+              alt="Domitech Solutions"
+              width={50}
+              height={50}
               className="relative z-10 transition-transform duration-300 group-hover:scale-110"
             />
             <div
               className="absolute inset-0 z-0 rounded-full opacity-50 blur-md transition-opacity duration-300 group-hover:opacity-80"
               style={{
                 background:
-                  "radial-gradient(circle, #01FDFE 0%, #5B2FB8 60%, transparent 100%)",
+                  "radial-gradient(circle, #DC0000 0%, #8B0000 60%, transparent 100%)",
               }}
             />
           </div>
           <span className="text-sm font-bold tracking-wider uppercase hidden sm:inline font-[family-name:var(--font-montserrat)]">
-            <span className="text-white">Vintia</span>
-            <span className="text-[#01FDFE]"> Digital</span>
+            <span className="text-white">Domitech</span>
+            <span className="text-[#DC0000]"> Solutions</span>
           </span>
         </a>
 
@@ -93,14 +93,14 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="relative px-3.5 py-2 text-[13px] font-medium tracking-wide text-white/50 uppercase transition-all duration-300 hover:text-[#01FDFE] group font-[family-name:var(--font-montserrat)]"
+                className="relative px-3.5 py-2 text-[13px] font-medium tracking-wide text-white/50 uppercase transition-all duration-300 hover:text-[#DC0000] group font-[family-name:var(--font-montserrat)]"
               >
                 {link.label}
                 <span
                   className="absolute bottom-0 left-1/2 h-[2px] w-0 -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"
                   style={{
                     background:
-                      "linear-gradient(90deg, #01FDFE, #5B2FB8)",
+                      "linear-gradient(90deg, #DC0000, #8B0000)",
                   }}
                 />
               </a>
@@ -113,20 +113,20 @@ export default function Navbar() {
           href="#contactanos"
           className="hidden relative rounded-full px-6 py-2.5 text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:scale-105 lg:inline-block font-[family-name:var(--font-montserrat)] overflow-hidden group"
           style={{
-            background: "linear-gradient(135deg, #013795, #5B2FB8)",
+            background: "linear-gradient(135deg, #DC0000, #8B0000)",
           }}
         >
           <span className="relative z-10">Hablemos</span>
           <div
             className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             style={{
-              background: "linear-gradient(135deg, #5B2FB8, #FD67EB)",
+              background: "linear-gradient(135deg, #8B0000, #FF4444)",
             }}
           />
           <div
             className="absolute -inset-1 opacity-0 rounded-full blur-md transition-opacity duration-300 group-hover:opacity-50"
             style={{
-              background: "linear-gradient(135deg, #01FDFE, #5B2FB8)",
+              background: "linear-gradient(135deg, #DC0000, #FF0000)",
             }}
           />
         </a>
@@ -134,7 +134,7 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-white/70 transition-colors hover:text-[#01FDFE] lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-white/70 transition-colors hover:text-[#DC0000] lg:hidden"
           aria-label="Abrir menú"
         >
           <svg
@@ -169,14 +169,14 @@ export default function Navbar() {
       >
         <div
           className="px-6 py-4 space-y-1"
-          style={{ background: "rgba(4, 16, 32, 0.95)" }}
+          style={{ background: "rgba(10, 10, 10, 0.95)" }}
         >
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-4 py-3 text-sm font-medium text-white/50 transition-colors hover:bg-white/5 hover:text-[#01FDFE] font-[family-name:var(--font-montserrat)]"
+              className="block rounded-lg px-4 py-3 text-sm font-medium text-white/50 transition-colors hover:bg-white/5 hover:text-[#DC0000] font-[family-name:var(--font-montserrat)]"
             >
               {link.label}
             </a>
@@ -186,7 +186,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen(false)}
             className="mt-3 block rounded-full py-3 text-center text-sm font-bold text-white font-[family-name:var(--font-montserrat)]"
             style={{
-              background: "linear-gradient(135deg, #013795, #5B2FB8)",
+              background: "linear-gradient(135deg, #DC0000, #8B0000)",
             }}
           >
             Hablemos

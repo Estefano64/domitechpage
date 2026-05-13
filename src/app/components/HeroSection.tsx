@@ -4,29 +4,42 @@ import dynamic from "next/dynamic";
 import Typewriter from "./Typewriter";
 
 const Hologram = dynamic(() => import("./Hologram"), { ssr: false });
+const AnimatedParticles = dynamic(() => import("./AnimatedParticles"), { ssr: false });
 
 export default function HeroSection() {
   return (
     <section
       className="relative flex h-[calc(100vh-64px)] items-center overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #041020 0%, #0a0e1a 50%, #041020 100%)" }}
+      style={{ background: "linear-gradient(160deg, #0A0A0A 0%, #1a0a0a 50%, #0A0A0A 100%)" }}
     >
       {/* Hologram background */}
       <Hologram />
 
-      {/* Ambient glow spots */}
+      {/* Animated Particles */}
+      <div className="absolute inset-0 z-0">
+        <AnimatedParticles />
+      </div>
+
+      {/* Ambient glow spots - más intensos y animados */}
       <div
-        className="absolute top-1/4 right-1/4 w-[500px] h-[500px] opacity-15 pointer-events-none"
+        className="absolute top-1/4 right-1/4 w-[600px] h-[600px] opacity-25 pointer-events-none animate-pulse-slow"
         style={{
-          background: "radial-gradient(circle, #5B2FB8 0%, transparent 70%)",
+          background: "radial-gradient(circle, #DC0000 0%, #8B0000 40%, transparent 70%)",
+          filter: "blur(100px)",
+        }}
+      />
+      <div
+        className="absolute bottom-1/3 left-1/3 w-[400px] h-[400px] opacity-20 pointer-events-none animate-pulse-slower"
+        style={{
+          background: "radial-gradient(circle, #FF4444 0%, #DC0000 30%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
       <div
-        className="absolute bottom-1/3 left-1/3 w-[300px] h-[300px] opacity-10 pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-10 pointer-events-none animate-spin-very-slow"
         style={{
-          background: "radial-gradient(circle, #01FDFE 0%, transparent 70%)",
-          filter: "blur(60px)",
+          background: "conic-gradient(from 0deg, transparent, #DC0000, transparent 180deg, #8B0000, transparent)",
+          filter: "blur(120px)",
         }}
       />
 
@@ -35,13 +48,13 @@ export default function HeroSection() {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            "linear-gradient(to right, #041020 0%, rgba(4,16,32,0.8) 40%, rgba(4,16,32,0.3) 70%, transparent 100%)",
+            "linear-gradient(to right, #0A0A0A 0%, rgba(10,10,10,0.8) 40%, rgba(10,10,10,0.3) 70%, transparent 100%)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 right-0 z-[1] h-32"
         style={{
-          background: "linear-gradient(to top, #041020 0%, transparent 100%)",
+          background: "linear-gradient(to top, #0A0A0A 0%, transparent 100%)",
         }}
       />
 
@@ -52,17 +65,17 @@ export default function HeroSection() {
           <div
             className="mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5"
             style={{
-              background: "rgba(1, 253, 254, 0.06)",
-              border: "1px solid rgba(1, 253, 254, 0.15)",
+              background: "rgba(220, 0, 0, 0.06)",
+              border: "1px solid rgba(220, 0, 0, 0.15)",
             }}
           >
             <span
               className="h-1.5 w-1.5 rounded-full animate-pulse"
-              style={{ background: "#01FDFE" }}
+              style={{ background: "#DC0000" }}
             />
             <span
               className="text-[11px] font-semibold tracking-[0.2em] uppercase font-[family-name:var(--font-montserrat)]"
-              style={{ color: "#01FDFE" }}
+              style={{ color: "#DC0000" }}
             >
               Agencia Digital en Arequipa
             </span>
@@ -76,7 +89,7 @@ export default function HeroSection() {
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(135deg, #01FDFE 0%, #5B2FB8 50%, #FD67EB 100%)",
+                  "linear-gradient(135deg, #DC0000 0%, #8B0000 50%, #FF4444 100%)",
               }}
             >
               <Typewriter
@@ -99,8 +112,8 @@ export default function HeroSection() {
           <p className="mt-5 max-w-lg text-sm leading-7 text-white/45 sm:text-base font-[family-name:var(--font-open-sans)]">
             Hacemos que tu negocio destaque en el ecosistema digital con diseño
             estratégico y resultados reales. Con la gestión de{" "}
-            <span className="font-semibold" style={{ color: "#01FDFE" }}>
-              Vintia Digital
+            <span className="font-semibold" style={{ color: "#DC0000" }}>
+              Domitech Solutions
             </span>{" "}
             lo conseguimos.
           </p>
@@ -112,7 +125,7 @@ export default function HeroSection() {
               href="#contactanos"
               className="group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[13px] font-bold tracking-wider text-white uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden"
               style={{
-                background: "linear-gradient(135deg, #013795, #5B2FB8)",
+                background: "linear-gradient(135deg, #DC0000, #8B0000)",
               }}
             >
               <span className="relative z-10">Auditoría Gratuita</span>
@@ -132,13 +145,13 @@ export default function HeroSection() {
               <div
                 className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 style={{
-                  background: "linear-gradient(135deg, #5B2FB8, #FD67EB)",
+                  background: "linear-gradient(135deg, #8B0000, #FF4444)",
                 }}
               />
               <div
                 className="absolute -inset-2 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-40"
                 style={{
-                  background: "linear-gradient(135deg, #01FDFE, #5B2FB8)",
+                  background: "linear-gradient(135deg, #DC0000, #FF0000)",
                 }}
               />
             </a>
@@ -149,18 +162,18 @@ export default function HeroSection() {
               className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[13px] font-bold tracking-wider uppercase backdrop-blur-sm transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)]"
               style={{
                 color: "rgba(255,255,255,0.6)",
-                border: "1px solid rgba(1, 253, 254, 0.15)",
-                background: "rgba(1, 253, 254, 0.04)",
+                border: "1px solid rgba(220, 0, 0, 0.15)",
+                background: "rgba(220, 0, 0, 0.04)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.4)";
-                e.currentTarget.style.color = "#01FDFE";
-                e.currentTarget.style.background = "rgba(1, 253, 254, 0.08)";
+                e.currentTarget.style.borderColor = "rgba(220, 0, 0, 0.4)";
+                e.currentTarget.style.color = "#DC0000";
+                e.currentTarget.style.background = "rgba(220, 0, 0, 0.08)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.15)";
+                e.currentTarget.style.borderColor = "rgba(220, 0, 0, 0.15)";
                 e.currentTarget.style.color = "rgba(255,255,255,0.6)";
-                e.currentTarget.style.background = "rgba(1, 253, 254, 0.04)";
+                e.currentTarget.style.background = "rgba(220, 0, 0, 0.04)";
               }}
             >
               <span>Ver Portafolio</span>
@@ -190,7 +203,7 @@ export default function HeroSection() {
         <div
           className="h-6 w-[1px] animate-pulse"
           style={{
-            background: "linear-gradient(to bottom, #01FDFE, transparent)",
+            background: "linear-gradient(to bottom, #DC0000, transparent)",
           }}
         />
       </div>

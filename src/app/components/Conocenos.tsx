@@ -27,13 +27,20 @@ export default function Conocenos() {
       <section
         id="conocenos"
         className="relative py-16 sm:py-20 overflow-hidden"
-        style={{ background: "#041020" }}
+        style={{ background: "#0A0A0A" }}
       >
-        {/* Ambient glow */}
+        {/* Ambient glows - mejorados */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-10 pointer-events-none"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] opacity-20 pointer-events-none animate-pulse-slow"
           style={{
-            background: "radial-gradient(ellipse, #5B2FB8 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, #DC0000 0%, #8B0000 30%, transparent 70%)",
+            filter: "blur(100px)",
+          }}
+        />
+        <div
+          className="absolute bottom-0 right-0 w-[500px] h-[300px] opacity-15 pointer-events-none animate-pulse-slower"
+          style={{
+            background: "radial-gradient(circle, #FF4444 0%, transparent 70%)",
             filter: "blur(80px)",
           }}
         />
@@ -43,7 +50,7 @@ export default function Conocenos() {
           <div className="flex justify-center mb-3">
             <span
               className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-              style={{ color: "#01FDFE" }}
+              style={{ color: "#DC0000" }}
             >
               Quiénes somos
             </span>
@@ -57,7 +64,7 @@ export default function Conocenos() {
             <span
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: "linear-gradient(135deg, #01FDFE, #5B2FB8, #FD67EB)",
+                backgroundImage: "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
               }}
             >
               NOS
@@ -67,7 +74,7 @@ export default function Conocenos() {
           {/* Divider */}
           <div className="mx-auto mt-4 mb-6 h-[2px] w-12"
             style={{
-              background: "linear-gradient(90deg, #01FDFE, #5B2FB8)",
+              background: "linear-gradient(90deg, #DC0000, #8B0000)",
             }}
           />
 
@@ -91,7 +98,7 @@ export default function Conocenos() {
               <div className="relative aspect-video w-full overflow-hidden rounded-xl">
                 <img
                   src={`https://img.youtube.com/vi/${YOUTUBE_ID}/maxresdefault.jpg`}
-                  alt="Video de presentación Vintia Digital"
+                  alt="Video de presentación Domitech Solutions"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
@@ -116,7 +123,7 @@ export default function Conocenos() {
                     <svg
                       className="h-6 w-6 translate-x-0.5"
                       viewBox="0 0 24 24"
-                      fill="#01FDFE"
+                      fill="#DC0000"
                     >
                       <path d="M8 5v14l11-7z" />
                     </svg>
@@ -137,7 +144,7 @@ export default function Conocenos() {
                     background: "linear-gradient(to top, rgba(4,16,32,0.9), transparent)",
                   }}
                 >
-                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="#01FDFE" strokeWidth={1.5}>
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="#DC0000" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
                   </svg>
                   <span className="text-[11px] font-medium tracking-wider text-white/50 uppercase font-[family-name:var(--font-montserrat)]">
@@ -190,7 +197,7 @@ export default function Conocenos() {
             >
               <iframe
                 src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0`}
-                title="Presentación Vintia Digital"
+                title="Presentación Domitech Solutions"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="absolute inset-0 h-full w-full"

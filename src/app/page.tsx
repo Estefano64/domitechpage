@@ -2,9 +2,11 @@ import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import Conocenos from "./components/Conocenos";
 import Servicios from "./components/Servicios";
+import PorQueElegirnos from "./components/PorQueElegirnos";
 import Proyectos from "./components/Proyectos";
-import Testimonios from "./components/Testimonios";
+import ProcesoTrabajo from "./components/ProcesoTrabajo";
 import Clientes from "./components/Clientes";
+import FAQ from "./components/FAQ";
 import Contactanos from "./components/Contactanos";
 
 export default function Home() {
@@ -21,19 +23,24 @@ export default function Home() {
       <Navbar />
 
       {/* Conócenos */}
-      <Conocenos />
 
       {/* Servicios */}
       <Servicios />
 
+      {/* Por Qué Elegirnos */}
+      <PorQueElegirnos />
+
       {/* Proyectos */}
       <Proyectos />
 
-      {/* Testimonios */}
-      <Testimonios />
+      {/* Proceso de Trabajo */}
+      <ProcesoTrabajo />
 
       {/* Clientes */}
       <Clientes />
+
+      {/* FAQ */}
+      <FAQ />
 
       {/* Contáctanos */}
       <Contactanos />
