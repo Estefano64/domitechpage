@@ -95,29 +95,14 @@ export default function ProcesoTrabajo() {
   return (
     <section
       id="proceso"
-      className="relative py-16 sm:py-20 overflow-hidden"
-      style={{ background: "#0A0A0A" }}
+      className="relative py-16 sm:py-20 overflow-hidden bg-[var(--color-bg-alt)]"
     >
-      {/* Glows - mejorados y animados */}
+      {/* Glows - suaves */}
       <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] opacity-18 pointer-events-none animate-pulse-slow"
+        className="absolute top-0 right-0 w-[600px] h-[600px] opacity-10 pointer-events-none animate-pulse-slow"
         style={{
-          background: "radial-gradient(circle, #DC0000 0%, #8B0000 40%, transparent 70%)",
+          background: "radial-gradient(circle, var(--color-accent-base) 0%, transparent 70%)",
           filter: "blur(130px)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[550px] h-[550px] opacity-16 pointer-events-none animate-pulse-slower"
-        style={{
-          background: "radial-gradient(circle, #FF4444 0%, #DC0000 30%, transparent 70%)",
-          filter: "blur(110px)",
-        }}
-      />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] opacity-10 pointer-events-none animate-spin-very-slow"
-        style={{
-          background: "conic-gradient(from 0deg, transparent, #DC0000, transparent 180deg, #8B0000, transparent)",
-          filter: "blur(150px)",
         }}
       />
 
@@ -125,28 +110,24 @@ export default function ProcesoTrabajo() {
         {/* Header */}
         <div className="flex justify-center mb-3">
           <span
-            className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-            style={{ color: "#DC0000" }}
+            className="text-accent-mype text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
           >
             Metodología Probada
           </span>
         </div>
         <h2 className="text-center text-3xl font-extrabold tracking-tight uppercase sm:text-4xl lg:text-5xl font-[family-name:var(--font-montserrat)]">
-          <span className="text-white">NUESTRO </span>
+          <span className="text-[var(--color-text-primary)]">NUESTRO </span>
           <span
-            className="bg-clip-text text-transparent"
-            style={{
-              backgroundImage: "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
-            }}
+            className="text-[var(--color-cta-base)]"
           >
             PROCESO
           </span>
         </h2>
         <div
           className="mx-auto mt-4 mb-4 h-[2px] w-12"
-          style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
+          style={{ background: "var(--color-cta-base)" }}
         />
-        <p className="mx-auto max-w-3xl text-center text-sm leading-7 text-white/45 sm:text-base mb-12 font-[family-name:var(--font-open-sans)]">
+        <p className="mx-auto max-w-3xl text-center text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base mb-12 font-[family-name:var(--font-open-sans)]">
           Seguimos un proceso estructurado y transparente que garantiza resultados excepcionales. 
           Desde la primera reunión hasta el soporte post-lanzamiento, estarás al tanto de cada paso.
         </p>
@@ -155,10 +136,7 @@ export default function ProcesoTrabajo() {
         <div className="relative">
           {/* Línea vertical conectora */}
           <div
-            className="absolute left-8 top-8 bottom-8 w-[2px] hidden lg:block"
-            style={{
-              background: "linear-gradient(180deg, transparent 0%, #DC0000 15%, #DC0000 85%, transparent 100%)",
-            }}
+            className="absolute left-8 top-8 bottom-8 w-[2px] hidden lg:block bg-[var(--color-border)]"
           />
 
           {/* Steps */}
@@ -174,41 +152,39 @@ export default function ProcesoTrabajo() {
                   <div
                     className="rounded-xl p-6 transition-all duration-300"
                     style={{
-                      background: activeStep === index ? "rgba(220, 0, 0, 0.08)" : "rgba(255,255,255,0.02)",
-                      border: `1px solid ${activeStep === index ? "rgba(220, 0, 0, 0.3)" : "rgba(255,255,255,0.05)"}`,
+                      background: activeStep === index ? "white" : "var(--color-bg-primary)",
+                      border: `1px solid ${activeStep === index ? "var(--color-cta-base)" : "var(--color-border)"}`,
+                      boxShadow: activeStep === index ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
                     }}
                   >
                     <div className="flex items-start gap-4">
                       <div
-                        className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
+                        className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-colors duration-300"
                         style={{
-                          background: activeStep === index ? "linear-gradient(135deg, #DC0000, #8B0000)" : "rgba(220, 0, 0, 0.2)",
-                          color: "#fff",
+                          background: activeStep === index ? "var(--color-cta-base)" : "#f1f5f9",
+                          color: activeStep === index ? "#fff" : "var(--color-text-secondary)",
+                          border: activeStep === index ? "none" : "1px solid var(--color-border)",
                         }}
                       >
                         {paso.numero}
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <h3 className="text-lg font-bold text-white font-[family-name:var(--font-montserrat)]">
+                          <h3 className="text-lg font-bold text-[var(--color-text-primary)] font-[family-name:var(--font-montserrat)]">
                             {paso.titulo}
                           </h3>
-                          <span className="text-xs text-white/30 font-[family-name:var(--font-open-sans)]">
+                          <span className="text-xs text-[var(--color-text-secondary)] font-[family-name:var(--font-open-sans)]">
                             {paso.duracion}
                           </span>
                         </div>
-                        <p className="text-sm text-white/40 leading-6 mb-3 font-[family-name:var(--font-open-sans)]">
+                        <p className="text-sm text-[var(--color-text-secondary)] leading-6 mb-3 font-[family-name:var(--font-open-sans)]">
                           {paso.descripcion}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {paso.entregables.slice(0, 2).map((entregable, i) => (
                             <span
                               key={i}
-                              className="text-xs px-2 py-1 rounded"
-                              style={{
-                                background: "rgba(220, 0, 0, 0.1)",
-                                color: "#DC0000",
-                              }}
+                              className="text-[10px] px-2 py-1 rounded-md border border-[var(--color-border)] bg-[var(--color-bg-alt)] text-[var(--color-text-primary)]"
                             >
                               {entregable}
                             </span>
@@ -226,9 +202,10 @@ export default function ProcesoTrabajo() {
                     <div
                       className="w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl transition-all duration-300 z-10 relative"
                       style={{
-                        background: activeStep === index ? "linear-gradient(135deg, #DC0000, #8B0000)" : "rgba(220, 0, 0, 0.2)",
-                        color: "#fff",
-                        boxShadow: activeStep === index ? "0 0 30px rgba(220, 0, 0, 0.4)" : "none",
+                        background: activeStep === index ? "var(--color-cta-base)" : "#f1f5f9",
+                        color: activeStep === index ? "#fff" : "var(--color-text-secondary)",
+                        boxShadow: activeStep === index ? "0 4px 14px 0 rgba(5, 150, 105, 0.39)" : "none",
+                        border: activeStep === index ? "none" : "1px solid var(--color-border)",
                       }}
                     >
                       {paso.numero}
@@ -239,48 +216,41 @@ export default function ProcesoTrabajo() {
                   <div
                     className="flex-1 rounded-xl p-6 transition-all duration-300"
                     style={{
-                      background: activeStep === index ? "rgba(220, 0, 0, 0.08)" : "rgba(255,255,255,0.02)",
-                      border: `1px solid ${activeStep === index ? "rgba(220, 0, 0, 0.3)" : "rgba(255,255,255,0.05)"}`,
+                      background: "white",
+                      border: `1px solid ${activeStep === index ? "var(--color-cta-base)" : "var(--color-border)"}`,
+                      boxShadow: activeStep === index ? "0 10px 15px -3px rgba(0, 0, 0, 0.1)" : "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+                      opacity: activeStep === index ? 1 : 0.6,
                     }}
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-3">
                         <div
-                          className="w-10 h-10 rounded-lg flex items-center justify-center"
-                          style={{
-                            background: "rgba(220, 0, 0, 0.15)",
-                            color: "#DC0000",
-                          }}
+                          className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-50 text-[var(--color-accent-base)] transition-colors duration-300"
                         >
                           {paso.icon}
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold text-white font-[family-name:var(--font-montserrat)]">
+                          <h3 className="text-xl font-bold text-[var(--color-text-primary)] font-[family-name:var(--font-montserrat)]">
                             {paso.titulo}
                           </h3>
-                          <span className="text-xs text-white/30 font-[family-name:var(--font-open-sans)]">
+                          <span className="text-xs text-[var(--color-text-secondary)] font-[family-name:var(--font-open-sans)]">
                             Duración: {paso.duracion}
                           </span>
                         </div>
                       </div>
                     </div>
-                    <p className="text-sm text-white/45 leading-6 mb-4 font-[family-name:var(--font-open-sans)]">
+                    <p className="text-sm text-[var(--color-text-secondary)] leading-6 mb-4 font-[family-name:var(--font-open-sans)]">
                       {paso.descripcion}
                     </p>
                     <div>
-                      <span className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-2 block">
+                      <span className="text-xs font-bold text-[var(--color-cta-base)] uppercase tracking-wider mb-2 block">
                         Entregables:
                       </span>
                       <div className="flex flex-wrap gap-2">
                         {paso.entregables.map((entregable, i) => (
                           <span
                             key={i}
-                            className="text-xs px-3 py-1 rounded-full"
-                            style={{
-                              background: "rgba(220, 0, 0, 0.1)",
-                              color: "#DC0000",
-                              border: "1px solid rgba(220, 0, 0, 0.2)",
-                            }}
+                            className="text-[10px] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-alt)] text-[var(--color-text-primary)] shadow-sm"
                           >
                             {entregable}
                           </span>
@@ -298,14 +268,11 @@ export default function ProcesoTrabajo() {
         <div className="flex justify-center mt-12">
           <a
             href="#contactanos"
-            className="group relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden"
-            style={{
-              background: "linear-gradient(135deg, #DC0000, #8B0000)",
-            }}
+            className="btn-primary-mype gap-2"
           >
-            <span className="relative z-10">Inicia Tu Proyecto Ahora</span>
+            <span>Inicia Tu Proyecto Ahora</span>
             <svg
-              className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -313,12 +280,6 @@ export default function ProcesoTrabajo() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-            <div
-              className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              style={{
-                background: "linear-gradient(135deg, #8B0000, #FF4444)",
-              }}
-            />
           </a>
         </div>
       </div>

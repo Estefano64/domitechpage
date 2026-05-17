@@ -14,31 +14,31 @@ const testimonials: Testimonial[] = [
     name: "Kuni 2005",
     role: "CEO de TechFlow",
     videoId: "7604546222401146130",
-    accent: "#DC0000",
+    accent: "#ff0124",
   },
   {
     name: "Ana López",
     role: "Fundadora Studio X",
     videoId: "7604546222401146130",
-    accent: "#FF4444",
+    accent: "#ff0124",
   },
   {
     name: "Carlos Ruiz",
     role: "CTO Innova",
     videoId: "7604546222401146130",
-    accent: "#8B0000",
+    accent: "#ff0124",
   },
   {
     name: "Global Corp",
     role: "Marketing Director",
     videoId: "7604546222401146130",
-    accent: "#DC0000",
+    accent: "#ff0124",
   },
   {
     name: "Next Level",
     role: "Startup Founder",
     videoId: "7604546222401146130",
-    accent: "#DC0000",
+    accent: "#ff0124",
   },
 ];
 
@@ -181,14 +181,14 @@ export default function Testimonios() {
         <div
           className="absolute top-1/3 left-1/4 w-[400px] h-[400px] opacity-8 pointer-events-none"
           style={{
-            background: "radial-gradient(circle, #8B0000 0%, transparent 70%)",
+            background: "radial-gradient(circle, #ff0124 0%, transparent 70%)",
             filter: "blur(100px)",
           }}
         />
         <div
           className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] opacity-6 pointer-events-none"
           style={{
-            background: "radial-gradient(circle, #DC0000 0%, transparent 70%)",
+            background: "radial-gradient(circle, #ff0124 0%, transparent 70%)",
             filter: "blur(80px)",
           }}
         />
@@ -198,7 +198,7 @@ export default function Testimonios() {
           <div className="flex justify-center mb-3">
             <span
               className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-              style={{ color: "#DC0000" }}
+              style={{ color: "#ff0124" }}
             >
               Testimonios
             </span>
@@ -209,7 +209,7 @@ export default function Testimonios() {
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
+                  "linear-gradient(135deg, #ff0124, #ff0124, #ff0124)",
               }}
             >
               REALES
@@ -218,7 +218,7 @@ export default function Testimonios() {
           <div
             className="mx-auto mt-4 mb-6 h-[2px] w-12"
             style={{
-              background: "linear-gradient(90deg, #DC0000, #8B0000)",
+              background: "linear-gradient(90deg, #ff0124, #ff0124)",
             }}
           />
           <p className="mx-auto max-w-xl text-center text-sm leading-6 text-white/40 sm:text-base font-[family-name:var(--font-open-sans)]">

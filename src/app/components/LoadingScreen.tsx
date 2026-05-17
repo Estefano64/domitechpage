@@ -58,7 +58,7 @@ export default function LoadingScreen() {
           className="h-full animate-loading-bar rounded-full"
           style={{
             background:
-              "linear-gradient(90deg, #DC0000, #FF0000, #8B0000)",
+              "linear-gradient(90deg, #ff0124, #ff0124, #ff0124)",
           }}
         />
       </div>

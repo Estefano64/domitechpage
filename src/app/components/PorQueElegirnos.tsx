@@ -61,29 +61,14 @@ export default function PorQueElegirnos() {
   return (
     <section
       id="por-que-elegirnos"
-      className="relative py-16 sm:py-20 overflow-hidden"
-      style={{ background: "#0A0A0A" }}
+      className="relative py-16 sm:py-20 overflow-hidden bg-[var(--color-bg-alt)]"
     >
-      {/* Ambient glows - mejorados */}
+      {/* Ambient glows - suaves */}
       <div
-        className="absolute top-0 right-0 w-[500px] h-[500px] opacity-18 pointer-events-none animate-pulse-slow"
+        className="absolute top-0 right-0 w-[500px] h-[500px] opacity-10 pointer-events-none animate-pulse-slow"
         style={{
-          background: "radial-gradient(circle, #DC0000 0%, #8B0000 40%, transparent 70%)",
+          background: "radial-gradient(circle, var(--color-accent-base) 0%, transparent 70%)",
           filter: "blur(120px)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[450px] h-[450px] opacity-15 pointer-events-none animate-pulse-slower"
-        style={{
-          background: "radial-gradient(circle, #FF4444 0%, #DC0000 30%, transparent 70%)",
-          filter: "blur(100px)",
-        }}
-      />
-      <div
-        className="absolute top-1/2 right-1/4 w-[600px] h-[600px] opacity-10 pointer-events-none animate-spin-very-slow"
-        style={{
-          background: "conic-gradient(from 0deg, transparent, #DC0000, transparent)",
-          filter: "blur(130px)",
         }}
       />
 
@@ -91,28 +76,24 @@ export default function PorQueElegirnos() {
         {/* Header */}
         <div className="flex justify-center mb-3">
           <span
-            className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-            style={{ color: "#DC0000" }}
+            className="text-accent-mype text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
           >
             Nuestra Propuesta de Valor
           </span>
         </div>
         <h2 className="text-center text-3xl font-extrabold tracking-tight uppercase sm:text-4xl lg:text-5xl font-[family-name:var(--font-montserrat)]">
-          <span className="text-white">¿POR QUÉ ELEGIR </span>
+          <span className="text-[var(--color-text-primary)]">¿POR QUÉ ELEGIR </span>
           <span
-            className="bg-clip-text text-transparent"
-            style={{
-              backgroundImage: "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
-            }}
+            className="text-[var(--color-cta-base)]"
           >
             DOMITECH?
           </span>
         </h2>
         <div
           className="mx-auto mt-4 mb-4 h-[2px] w-12"
-          style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
+          style={{ background: "var(--color-cta-base)" }}
         />
-        <p className="mx-auto max-w-3xl text-center text-sm leading-7 text-white/45 sm:text-base mb-12 font-[family-name:var(--font-open-sans)]">
+        <p className="mx-auto max-w-3xl text-center text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base mb-12 font-[family-name:var(--font-open-sans)]">
           En Domitech Solutions no solo creamos sitios web, construimos experiencias digitales que transforman negocios. 
           Somos tu socio estratégico en el crecimiento digital de tu empresa en Arequipa y Perú.
         </p>
@@ -122,48 +103,30 @@ export default function PorQueElegirnos() {
           {beneficios.map((beneficio, index) => (
             <div
               key={index}
-              className="group relative rounded-xl p-6 transition-all duration-300 hover:scale-105"
-              style={{
-                background: "rgba(255,255,255,0.02)",
-                border: "1px solid rgba(255,255,255,0.05)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(220, 0, 0, 0.3)";
-                e.currentTarget.style.background = "rgba(220, 0, 0, 0.05)";
-                e.currentTarget.style.boxShadow = "0 0 30px rgba(220, 0, 0, 0.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
-                e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
+              className="group relative rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 bg-white border border-[var(--color-border)] shadow-sm hover:shadow-md hover:border-[var(--color-cta-base)] overflow-hidden"
             >
               {/* Icono */}
               <div
-                className="inline-flex items-center justify-center w-14 h-14 rounded-lg mb-4 transition-colors duration-300"
-                style={{
-                  background: "rgba(220, 0, 0, 0.1)",
-                  color: "#DC0000",
-                }}
+                className="inline-flex items-center justify-center w-14 h-14 rounded-lg mb-4 transition-colors duration-300 bg-slate-50 text-[var(--color-accent-base)] group-hover:text-[var(--color-cta-base)]"
               >
                 {beneficio.icon}
               </div>
 
               {/* Título */}
-              <h3 className="text-lg font-bold text-white mb-2 font-[family-name:var(--font-montserrat)]">
+              <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2 font-[family-name:var(--font-montserrat)]">
                 {beneficio.titulo}
               </h3>
 
               {/* Descripción */}
-              <p className="text-sm leading-6 text-white/40 font-[family-name:var(--font-open-sans)]">
+              <p className="text-sm leading-6 text-[var(--color-text-secondary)] font-[family-name:var(--font-open-sans)]">
                 {beneficio.descripcion}
               </p>
 
-              {/* Decoración */}
+              {/* Decoración suave en hover */}
               <div
-                className="absolute top-0 right-0 w-20 h-20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"
+                className="absolute top-0 right-0 w-24 h-24 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"
                 style={{
-                  background: "radial-gradient(circle at top right, rgba(220,0,0,0.15) 0%, transparent 70%)",
+                  background: "radial-gradient(circle at top right, rgba(5, 150, 105, 0.05) 0%, transparent 70%)",
                 }}
               />
             </div>
@@ -174,14 +137,11 @@ export default function PorQueElegirnos() {
         <div className="flex justify-center mt-12">
           <a
             href="#contactanos"
-            className="group relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden"
-            style={{
-              background: "linear-gradient(135deg, #DC0000, #8B0000)",
-            }}
+            className="btn-primary-mype gap-2"
           >
-            <span className="relative z-10">Solicita una Auditoría Gratuita</span>
+            <span>Solicita una Auditoría Gratuita</span>
             <svg
-              className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -189,18 +149,6 @@ export default function PorQueElegirnos() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-            <div
-              className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              style={{
-                background: "linear-gradient(135deg, #8B0000, #FF4444)",
-              }}
-            />
-            <div
-              className="absolute -inset-2 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-40"
-              style={{
-                background: "linear-gradient(135deg, #DC0000, #FF0000)",
-              }}
-            />
           </a>
         </div>
       </div>

@@ -75,29 +75,21 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative py-16 sm:py-20 overflow-hidden"
-      style={{ background: "#0A0A0A" }}
+      className="relative py-16 sm:py-20 overflow-hidden bg-[var(--color-bg-primary)]"
     >
-      {/* Ambient glows - más intensos */}
+      {/* Ambient glows - suaves */}
       <div
-        className="absolute top-0 left-0 w-[500px] h-[500px] opacity-16 pointer-events-none animate-pulse-slow"
+        className="absolute top-0 left-0 w-[500px] h-[500px] opacity-5 pointer-events-none animate-pulse-slow"
         style={{
-          background: "radial-gradient(circle, #DC0000 0%, #8B0000 40%, transparent 70%)",
+          background: "radial-gradient(circle, var(--color-accent-base) 0%, transparent 70%)",
           filter: "blur(120px)",
         }}
       />
       <div
-        className="absolute bottom-0 right-0 w-[550px] h-[550px] opacity-18 pointer-events-none animate-pulse-slower"
+        className="absolute bottom-0 right-0 w-[550px] h-[550px] opacity-5 pointer-events-none animate-pulse-slower"
         style={{
-          background: "radial-gradient(circle, #FF4444 0%, #DC0000 30%, transparent 70%)",
+          background: "radial-gradient(circle, var(--color-accent-base) 0%, transparent 70%)",
           filter: "blur(130px)",
-        }}
-      />
-      <div
-        className="absolute top-1/2 left-1/4 w-[600px] h-[600px] opacity-12 pointer-events-none animate-spin-very-slow"
-        style={{
-          background: "conic-gradient(from 0deg, transparent, #DC0000, transparent)",
-          filter: "blur(140px)",
         }}
       />
 
@@ -105,29 +97,25 @@ export default function FAQ() {
         {/* Header */}
         <div className="flex justify-center mb-3">
           <span
-            className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-            style={{ color: "#DC0000" }}
+            className="text-accent-mype text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
           >
             Preguntas Frecuentes
           </span>
         </div>
         <h2 className="text-center text-3xl font-extrabold tracking-tight uppercase sm:text-4xl lg:text-5xl font-[family-name:var(--font-montserrat)]">
-          <span className="text-white">RESOLVEMOS TUS </span>
+          <span className="text-[var(--color-text-primary)]">RESOLVEMOS TUS </span>
           <span
-            className="bg-clip-text text-transparent"
-            style={{
-              backgroundImage: "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
-            }}
+            className="text-[var(--color-cta-base)]"
           >
             DUDAS
           </span>
         </h2>
         <div
           className="mx-auto mt-4 mb-4 h-[2px] w-12"
-          style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
+          style={{ background: "var(--color-cta-base)" }}
         />
-        <p className="mx-auto max-w-3xl text-center text-sm leading-7 text-white/45 sm:text-base mb-12 font-[family-name:var(--font-open-sans)]">
-          Estas son las preguntas más comunes que recibimos sobre nuestros servicios de desarrollo web. 
+        <p className="mx-auto max-w-3xl text-center text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base mb-12 font-[family-name:var(--font-open-sans)]">
+          Estas son las preguntas más comunes que recibimos sobre nuestros servicios de desarrollo web.
           Si tienes otra duda, ¡contáctanos directamente!
         </p>
 
@@ -140,8 +128,9 @@ export default function FAQ() {
                 key={index}
                 className="rounded-xl overflow-hidden transition-all duration-300"
                 style={{
-                  background: isOpen ? "rgba(220, 0, 0, 0.08)" : "rgba(255,255,255,0.02)",
-                  border: `1px solid ${isOpen ? "rgba(220, 0, 0, 0.3)" : "rgba(255,255,255,0.05)"}`,
+                  background: isOpen ? "white" : "var(--color-bg-alt)",
+                  border: `1px solid ${isOpen ? "var(--color-cta-base)" : "var(--color-border)"}`,
+                  boxShadow: isOpen ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
                 }}
               >
                 {/* Pregunta */}
@@ -149,18 +138,20 @@ export default function FAQ() {
                   onClick={() => toggleAccordion(index)}
                   className="w-full flex items-center justify-between p-5 text-left transition-colors duration-200 group"
                 >
-                  <span className="text-sm sm:text-base font-bold text-white pr-4 font-[family-name:var(--font-montserrat)]">
+                  <span className="text-sm sm:text-base font-bold text-[var(--color-text-primary)] pr-4 font-[family-name:var(--font-montserrat)]">
                     {item.pregunta}
                   </span>
                   <div
                     className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
                     style={{
-                      background: isOpen ? "linear-gradient(135deg, #DC0000, #8B0000)" : "rgba(220, 0, 0, 0.2)",
+                      background: isOpen ? "var(--color-cta-base)" : "#f1f5f9",
+                      color: isOpen ? "#fff" : "var(--color-text-secondary)",
                       transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                      border: isOpen ? "none" : "1px solid var(--color-border)",
                     }}
                   >
                     <svg
-                      className="w-4 h-4 text-white"
+                      className="w-4 h-4"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -179,7 +170,7 @@ export default function FAQ() {
                   }}
                 >
                   <div className="px-5 pb-5 pt-0">
-                    <p className="text-sm leading-7 text-white/45 font-[family-name:var(--font-open-sans)]">
+                    <p className="text-sm leading-7 text-[var(--color-text-secondary)] font-[family-name:var(--font-open-sans)]">
                       {item.respuesta}
                     </p>
                   </div>
@@ -191,19 +182,16 @@ export default function FAQ() {
 
         {/* CTA */}
         <div className="flex flex-col items-center mt-12 text-center">
-          <p className="text-white/50 mb-4 text-sm font-[family-name:var(--font-open-sans)]">
+          <p className="text-[var(--color-text-secondary)] mb-4 text-sm font-[family-name:var(--font-open-sans)]">
             ¿Tienes otra pregunta? Estamos aquí para ayudarte
           </p>
           <a
             href="#contactanos"
-            className="group relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden"
-            style={{
-              background: "linear-gradient(135deg, #DC0000, #8B0000)",
-            }}
+            className="btn-primary-mype gap-2"
           >
-            <span className="relative z-10">Contáctanos Ahora</span>
+            <span>Contáctanos Ahora</span>
             <svg
-              className="relative z-10 h-4 w-4"
+              className="h-4 w-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -215,12 +203,6 @@ export default function FAQ() {
                 d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
               />
             </svg>
-            <div
-              className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              style={{
-                background: "linear-gradient(135deg, #8B0000, #FF4444)",
-              }}
-            />
           </a>
         </div>
       </div>

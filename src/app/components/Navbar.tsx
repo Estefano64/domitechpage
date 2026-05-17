@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { label: "Proyectos", href: "#proyectos" },
   { label: "Testimonios", href: "#testimonios" },
   { label: "Clientes", href: "#clientes" },
-  { label: "Contáctanos", href: "#contactanos" },
 ];
 
 export default function Navbar() {
@@ -26,41 +25,18 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-40 w-full transition-all duration-500 ${
-        isSticky ? "nav-sticky" : ""
-      }`}
+      className={`sticky top-0 z-40 w-full transition-all duration-500 ${isSticky ? "nav-sticky shadow-sm" : ""
+        }`}
       style={{
         background: isSticky
-          ? "rgba(4, 16, 32, 0.85)"
-          : "rgba(4, 16, 32, 0.4)",
+          ? "rgba(10, 10, 10, 0.95)"
+          : "rgba(10, 10, 10, 0.7)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
+        borderBottom: isSticky ? "1px solid rgba(255,255,255,0.05)" : "1px solid transparent",
       }}
     >
-      {/* Glow line on top */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#DC0000]/50 to-transparent" />
 
-      {/* Animated glow effect behind navbar */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute -top-1 left-1/2 -translate-x-1/2 w-[60%] h-[2px] animate-glow-pulse"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #DC0000, #8B0000, #FF4444, transparent)",
-          }}
-        />
-        <div
-          className="absolute -top-4 left-1/2 -translate-x-1/2 w-[40%] h-8 opacity-30"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, #DC0000 0%, transparent 70%)",
-            filter: "blur(12px)",
-          }}
-        />
-      </div>
-
-      {/* Bottom border glow */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#8B0000]/30 to-transparent" />
 
       <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
         {/* Logo */}
@@ -77,30 +53,29 @@ export default function Navbar() {
               className="absolute inset-0 z-0 rounded-full opacity-50 blur-md transition-opacity duration-300 group-hover:opacity-80"
               style={{
                 background:
-                  "radial-gradient(circle, #DC0000 0%, #8B0000 60%, transparent 100%)",
+                  "radial-gradient(circle, #ff0124 0%, #ff0124 60%, transparent 100%)",
               }}
             />
           </div>
           <span className="text-sm font-bold tracking-wider uppercase hidden sm:inline font-[family-name:var(--font-montserrat)]">
             <span className="text-white">Domitech</span>
-            <span className="text-[#DC0000]"> Solutions</span>
+            <span className="text-[var(--color-cta-base)]"> Solutions</span>
           </span>
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-0.5 lg:flex">
+        <ul className="hidden items-center gap-0.5 xl:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="relative px-3.5 py-2 text-[13px] font-medium tracking-wide text-white/50 uppercase transition-all duration-300 hover:text-[#DC0000] group font-[family-name:var(--font-montserrat)]"
+                className="relative flex items-center px-3.5 py-2 mt-0.5 text-[13px] font-medium tracking-wide text-white/80 uppercase transition-all duration-300 hover:text-[var(--color-cta-base)] group font-[family-name:var(--font-montserrat)]"
               >
                 {link.label}
                 <span
                   className="absolute bottom-0 left-1/2 h-[2px] w-0 -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"
                   style={{
-                    background:
-                      "linear-gradient(90deg, #DC0000, #8B0000)",
+                    background: "var(--color-cta-base)",
                   }}
                 />
               </a>
@@ -111,30 +86,15 @@ export default function Navbar() {
         {/* CTA desktop */}
         <a
           href="#contactanos"
-          className="hidden relative rounded-full px-6 py-2.5 text-xs font-bold tracking-wider text-white uppercase transition-all duration-300 hover:scale-105 lg:inline-block font-[family-name:var(--font-montserrat)] overflow-hidden group"
-          style={{
-            background: "linear-gradient(135deg, #DC0000, #8B0000)",
-          }}
+          className="hidden btn-primary-mype xl:inline-flex gap-2 !px-6 !py-3 !text-xs"
         >
-          <span className="relative z-10">Hablemos</span>
-          <div
-            className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-            style={{
-              background: "linear-gradient(135deg, #8B0000, #FF4444)",
-            }}
-          />
-          <div
-            className="absolute -inset-1 opacity-0 rounded-full blur-md transition-opacity duration-300 group-hover:opacity-50"
-            style={{
-              background: "linear-gradient(135deg, #DC0000, #FF0000)",
-            }}
-          />
+          <span>Cotizar</span>
         </a>
 
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-white/70 transition-colors hover:text-[#DC0000] lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:text-[var(--color-cta-base)] xl:hidden"
           aria-label="Abrir menú"
         >
           <svg
@@ -163,20 +123,19 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden transition-all duration-400 lg:hidden ${
-          mobileOpen ? "max-h-[28rem]" : "max-h-0"
-        }`}
+        className={`overflow-hidden transition-all duration-400 xl:hidden ${mobileOpen ? "max-h-[28rem]" : "max-h-0"
+          }`}
       >
         <div
-          className="px-6 py-4 space-y-1"
-          style={{ background: "rgba(10, 10, 10, 0.95)" }}
+          className="px-6 py-4 space-y-1 shadow-md border-t border-white/5"
+          style={{ background: "rgba(15, 23, 42, 0.98)" }}
         >
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-4 py-3 text-sm font-medium text-white/50 transition-colors hover:bg-white/5 hover:text-[#DC0000] font-[family-name:var(--font-montserrat)]"
+              className="block rounded-lg px-4 py-3 text-sm font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-[var(--color-cta-base)] font-[family-name:var(--font-montserrat)]"
             >
               {link.label}
             </a>
@@ -184,12 +143,9 @@ export default function Navbar() {
           <a
             href="#contactanos"
             onClick={() => setMobileOpen(false)}
-            className="mt-3 block rounded-full py-3 text-center text-sm font-bold text-white font-[family-name:var(--font-montserrat)]"
-            style={{
-              background: "linear-gradient(135deg, #DC0000, #8B0000)",
-            }}
+            className="mt-3 w-full btn-primary-mype text-center block"
           >
-            Hablemos
+            Cotizar
           </a>
         </div>
       </div>

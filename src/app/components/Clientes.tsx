@@ -17,22 +17,14 @@ export default function Clientes() {
   return (
     <section
       id="clientes"
-      className="relative py-16 sm:py-20 overflow-hidden"
-      style={{ background: "#0A0A0A" }}
+      className="relative py-16 sm:py-20 overflow-hidden bg-[var(--color-bg-primary)]"
     >
-      {/* Ambient glows - mejorados */}
+      {/* Ambient glows - suaves */}
       <div
-        className="absolute top-0 left-1/4 w-[550px] h-[400px] opacity-18 pointer-events-none animate-pulse-slow"
+        className="absolute top-0 left-1/4 w-[550px] h-[400px] opacity-10 pointer-events-none animate-pulse-slow"
         style={{
-          background: "radial-gradient(ellipse, #DC0000 0%, #8B0000 40%, transparent 70%)",
+          background: "radial-gradient(ellipse, var(--color-accent-base) 0%, transparent 70%)",
           filter: "blur(120px)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 right-1/4 w-[500px] h-[400px] opacity-16 pointer-events-none animate-pulse-slower"
-        style={{
-          background: "radial-gradient(ellipse, #FF4444 0%, #DC0000 30%, transparent 70%)",
-          filter: "blur(110px)",
         }}
       />
 
@@ -40,27 +32,22 @@ export default function Clientes() {
         {/* Header */}
         <div className="flex justify-center mb-3">
           <span
-            className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-            style={{ color: "#DC0000" }}
+            className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)] text-[var(--color-cta-base)]"
           >
             Confían en nosotros
           </span>
         </div>
         <h2 className="text-center text-3xl font-extrabold tracking-tight uppercase sm:text-4xl lg:text-5xl font-[family-name:var(--font-montserrat)]">
-          <span className="text-white">NUESTROS </span>
+          <span className="text-[var(--color-text-primary)]">NUESTROS </span>
           <span
-            className="bg-clip-text text-transparent"
-            style={{
-              backgroundImage:
-                "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
-            }}
+            className="text-[var(--color-cta-base)]"
           >
             CLIENTES
           </span>
         </h2>
         <div
           className="mx-auto mt-4 mb-10 h-[2px] w-12"
-          style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
+          style={{ background: "var(--color-cta-base)" }}
         />
       </div>
 
@@ -70,15 +57,13 @@ export default function Clientes() {
         <div
           className="absolute top-0 left-0 bottom-0 w-24 sm:w-40 z-10 pointer-events-none"
           style={{
-            background:
-              "linear-gradient(to right, #0A0A0A, transparent)",
+            background: "linear-gradient(to right, white, transparent)",
           }}
         />
         <div
           className="absolute top-0 right-0 bottom-0 w-24 sm:w-40 z-10 pointer-events-none"
           style={{
-            background:
-              "linear-gradient(to left, #0A0A0A, transparent)",
+            background: "linear-gradient(to left, white, transparent)",
           }}
         />
 
@@ -91,34 +76,20 @@ export default function Clientes() {
                 className="marquee-item group"
               >
                 <div
-                  className="relative flex items-center justify-center rounded-xl px-8 py-6 transition-all duration-500 group-hover:scale-105"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    boxShadow: "0 0 15px rgba(220, 0, 0, 0.05), inset 0 1px 0 rgba(255,255,255,0.05)",
-                  }}
+                  className="relative flex items-center justify-center rounded-xl px-8 py-6 transition-all duration-500 group-hover:scale-105 bg-white border border-[var(--color-border)] shadow-sm"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(220, 0, 0, 0.25)";
-                    e.currentTarget.style.background = "rgba(220, 0, 0, 0.06)";
-                    e.currentTarget.style.boxShadow = "0 0 35px rgba(220, 0, 0, 0.12), inset 0 1px 0 rgba(220, 0, 0, 0.1)";
+                    e.currentTarget.style.borderColor = "var(--color-cta-base)";
+                    e.currentTarget.style.boxShadow = "0 4px 6px -1px rgba(5, 150, 105, 0.2)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-                    e.currentTarget.style.boxShadow = "0 0 15px rgba(220, 0, 0, 0.05), inset 0 1px 0 rgba(255,255,255,0.05)";
+                    e.currentTarget.style.borderColor = "var(--color-border)";
+                    e.currentTarget.style.boxShadow = "0 1px 2px 0 rgba(0, 0, 0, 0.05)";
                   }}
                 >
                   <img
                     src={logo}
                     alt="Cliente"
-                    className="h-10 sm:h-12 w-auto object-contain transition-all duration-500 opacity-70 brightness-75 group-hover:opacity-100 group-hover:brightness-100 group-hover:scale-110"
-                    style={{ filter: "saturate(0.3) brightness(0.75)" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.filter = "saturate(1) brightness(1)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.filter = "saturate(0.3) brightness(0.75)";
-                    }}
+                    className="h-10 sm:h-12 w-auto object-contain transition-all duration-500 opacity-60 group-hover:opacity-100 group-hover:scale-110 grayscale group-hover:grayscale-0"
                     draggable={false}
                   />
                 </div>

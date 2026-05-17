@@ -143,26 +143,16 @@ function ProjectCard({
     <div
       ref={cardRef}
       onClick={onClick}
-      className="group relative rounded-xl overflow-hidden transition-all duration-500 cursor-pointer"
+      className="group relative rounded-xl overflow-hidden transition-all duration-500 cursor-pointer bg-[var(--color-bg-alt)] border border-[var(--color-border)] shadow-sm hover:shadow-md"
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(30px)",
         transitionDelay: `${(index % 4) * 100}ms`,
       }}
     >
-      {/* Glow border on hover */}
-      <div
-        className="absolute -inset-[1px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
-        style={{
-          background: "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
-          filter: "blur(1px)",
-        }}
-      />
-
       {/* Card content */}
       <div
         className="relative z-[1] rounded-xl overflow-hidden"
-        style={{ background: "rgba(4, 16, 32, 0.95)" }}
       >
         {/* Iframe Preview */}
         <div className="relative overflow-hidden aspect-[4/3]">
@@ -181,19 +171,10 @@ function ProjectCard({
 
           {/* Hover overlay */}
           <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(1,55,149,0.85), rgba(91,47,184,0.85))",
-            }}
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center bg-black/40 backdrop-blur-sm"
           >
             <span
-              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[12px] font-bold tracking-wider uppercase font-[family-name:var(--font-montserrat)]"
-              style={{
-                background: "rgba(1, 253, 254, 0.15)",
-                border: "1px solid rgba(1, 253, 254, 0.5)",
-                color: "#DC0000",
-              }}
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[12px] font-bold tracking-wider uppercase font-[family-name:var(--font-montserrat)] bg-white text-[var(--color-cta-base)] shadow-lg"
             >
               <svg
                 className="h-3.5 w-3.5"
@@ -219,13 +200,7 @@ function ProjectCard({
 
           {/* Category tag */}
           <div
-            className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-semibold tracking-wider uppercase transition-all duration-300 group-hover:opacity-0 font-[family-name:var(--font-montserrat)]"
-            style={{
-              background: "rgba(4, 16, 32, 0.8)",
-              border: "1px solid rgba(1, 253, 254, 0.2)",
-              color: "#DC0000",
-              backdropFilter: "blur(8px)",
-            }}
+            className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-semibold tracking-wider uppercase transition-all duration-300 group-hover:opacity-0 font-[family-name:var(--font-montserrat)] bg-white/90 border border-[var(--color-border)] text-[var(--color-text-primary)] backdrop-blur-sm shadow-sm"
           >
             {project.category}
           </div>
@@ -233,17 +208,14 @@ function ProjectCard({
 
         {/* Info */}
         <div className="p-4">
-          <h3 className="text-sm font-bold text-white group-hover:text-[#DC0000] transition-colors duration-300 font-[family-name:var(--font-montserrat)]">
+          <h3 className="text-sm font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-cta-base)] transition-colors duration-300 font-[family-name:var(--font-montserrat)]">
             {project.title}
           </h3>
           <div className="mt-2 flex items-center gap-2">
             <div
-              className="h-[2px] w-0 group-hover:w-8 transition-all duration-500 rounded-full"
-              style={{
-                background: "linear-gradient(90deg, #DC0000, #8B0000)",
-              }}
+              className="h-[2px] w-0 group-hover:w-8 transition-all duration-500 rounded-full bg-[var(--color-cta-base)]"
             />
-            <span className="text-[11px] text-white/30 group-hover:text-white/50 transition-colors duration-300 font-[family-name:var(--font-open-sans)]">
+            <span className="text-[11px] text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors duration-300 font-[family-name:var(--font-open-sans)]">
               {project.url.replace("https://", "").replace(/\/$/, "")}
             </span>
           </div>
@@ -277,7 +249,7 @@ function ProjectModal({
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6"
       style={{
-        background: "rgba(2, 8, 16, 0.88)",
+        background: "rgba(255, 255, 255, 0.95)",
         backdropFilter: "blur(12px)",
         animation: "fadeIn 0.3s ease-out",
       }}
@@ -286,41 +258,23 @@ function ProjectModal({
       }}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-2xl"
+        className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-2xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] shadow-2xl"
         style={{
-          background: "linear-gradient(160deg, #0a1628 0%, #061020 50%, #0a0e1a 100%)",
-          border: "1px solid rgba(1, 253, 254, 0.1)",
           animation: "scaleIn 0.35s ease-out",
         }}
       >
         {/* Top glow line */}
         <div
-          className="absolute top-0 left-0 right-0 h-[2px] z-10"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #DC0000, #8B0000, #FF4444, transparent)",
-          }}
+          className="absolute top-0 left-0 right-0 h-[2px] z-10 bg-[var(--color-cta-base)]"
         />
 
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer"
-          style={{
-            background: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(255,255,255,0.1)",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "rgba(253,103,235,0.2)";
-            e.currentTarget.style.borderColor = "rgba(253,103,235,0.5)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-            e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-          }}
+          className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer bg-[var(--color-bg-alt)] border border-[var(--color-border)] hover:bg-slate-100"
         >
           <svg
-            className="h-4 w-4 text-white/60"
+            className="h-4 w-4 text-[var(--color-text-secondary)]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -335,42 +289,29 @@ function ProjectModal({
           {/* Header */}
           <div className="mb-4">
             <div
-              className="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-2"
-              style={{
-                background: "rgba(1, 253, 254, 0.06)",
-                border: "1px solid rgba(1, 253, 254, 0.15)",
-              }}
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-2 bg-[var(--color-bg-alt)] border border-[var(--color-border)]"
             >
               <span
-                className="h-1.5 w-1.5 rounded-full animate-pulse"
-                style={{ background: "#DC0000" }}
+                className="h-1.5 w-1.5 rounded-full animate-pulse bg-[var(--color-cta-base)]"
               />
               <span
-                className="text-[10px] font-semibold tracking-[0.2em] uppercase font-[family-name:var(--font-montserrat)]"
-                style={{ color: "#DC0000" }}
+                className="text-[10px] font-semibold tracking-[0.2em] uppercase font-[family-name:var(--font-montserrat)] text-[var(--color-accent-base)]"
               >
                 {project.category}
               </span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-white font-[family-name:var(--font-montserrat)]">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[var(--color-text-primary)] font-[family-name:var(--font-montserrat)]">
               {project.title}
             </h3>
           </div>
 
           {/* Live preview iframe */}
           <div
-            className="relative rounded-xl overflow-hidden mb-5"
-            style={{
-              border: "1px solid rgba(1, 253, 254, 0.1)",
-            }}
+            className="relative rounded-xl overflow-hidden mb-5 border border-[var(--color-border)]"
           >
             {/* Browser chrome bar */}
             <div
-              className="flex items-center gap-3 px-4 py-2.5"
-              style={{
-                background: "rgba(4, 16, 32, 0.9)",
-                borderBottom: "1px solid rgba(255,255,255,0.05)",
-              }}
+              className="flex items-center gap-3 px-4 py-2.5 bg-[var(--color-bg-alt)] border-b border-[var(--color-border)]"
             >
               <div className="flex gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
@@ -378,11 +319,10 @@ function ProjectModal({
                 <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
               </div>
               <div
-                className="flex-1 flex items-center gap-2 rounded-md px-3 py-1 text-[11px] text-white/40 font-[family-name:var(--font-open-sans)]"
-                style={{ background: "rgba(255,255,255,0.04)" }}
+                className="flex-1 flex items-center gap-2 rounded-md px-3 py-1 text-[11px] text-[var(--color-text-secondary)] font-[family-name:var(--font-open-sans)] bg-white border border-[var(--color-border)] shadow-inner"
               >
                 <svg
-                  className="h-3 w-3 text-white/20"
+                  className="h-3 w-3 text-slate-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -400,8 +340,7 @@ function ProjectModal({
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider transition-colors duration-200 hover:text-[#DC0000]"
-                style={{ color: "rgba(255,255,255,0.3)" }}
+                className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider transition-colors duration-200 text-[var(--color-text-secondary)] hover:text-[var(--color-cta-base)]"
               >
                 <svg
                   className="h-3 w-3"
@@ -436,12 +375,11 @@ function ProjectModal({
             {/* Description */}
             <div className="lg:col-span-3">
               <h4
-                className="text-[11px] font-bold tracking-[0.15em] uppercase mb-2 font-[family-name:var(--font-montserrat)]"
-                style={{ color: "#DC0000" }}
+                className="text-[11px] font-bold tracking-[0.15em] uppercase mb-2 font-[family-name:var(--font-montserrat)] text-[var(--color-cta-base)]"
               >
                 Descripción del Proyecto
               </h4>
-              <p className="text-[13px] leading-6 text-white/50 font-[family-name:var(--font-open-sans)]">
+              <p className="text-[13px] leading-6 text-[var(--color-text-secondary)] font-[family-name:var(--font-open-sans)]">
                 {project.description}
               </p>
 
@@ -450,12 +388,7 @@ function ProjectModal({
                 {project.techs.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full px-3 py-1 text-[10px] font-semibold tracking-wider uppercase font-[family-name:var(--font-montserrat)]"
-                    style={{
-                      background: "rgba(91, 47, 184, 0.12)",
-                      border: "1px solid rgba(91, 47, 184, 0.25)",
-                      color: "rgba(253, 103, 235, 0.7)",
-                    }}
+                    className="rounded-full px-3 py-1 text-[10px] font-semibold tracking-wider uppercase font-[family-name:var(--font-montserrat)] bg-[var(--color-bg-alt)] border border-[var(--color-border)] text-[var(--color-text-primary)] shadow-sm"
                   >
                     {tech}
                   </span>
@@ -466,8 +399,7 @@ function ProjectModal({
             {/* Stats */}
             <div className="lg:col-span-2">
               <h4
-                className="text-[11px] font-bold tracking-[0.15em] uppercase mb-2 font-[family-name:var(--font-montserrat)]"
-                style={{ color: "#DC0000" }}
+                className="text-[11px] font-bold tracking-[0.15em] uppercase mb-2 font-[family-name:var(--font-montserrat)] text-[var(--color-cta-base)]"
               >
                 Resultados Clave
               </h4>
@@ -475,23 +407,13 @@ function ProjectModal({
                 {project.stats.map((stat, i) => (
                   <div
                     key={i}
-                    className="rounded-lg p-3 flex items-center justify-between"
-                    style={{
-                      background: "rgba(1, 253, 254, 0.03)",
-                      border: "1px solid rgba(1, 253, 254, 0.08)",
-                    }}
+                    className="rounded-lg p-3 flex items-center justify-between bg-[var(--color-bg-alt)] border border-[var(--color-border)] shadow-sm"
                   >
-                    <span className="text-[11px] text-white/40 font-[family-name:var(--font-open-sans)]">
+                    <span className="text-[11px] text-[var(--color-text-secondary)] font-[family-name:var(--font-open-sans)]">
                       {stat.label}
                     </span>
                     <span
-                      className="text-base font-extrabold font-[family-name:var(--font-montserrat)]"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, #DC0000, #8B0000)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }}
+                      className="text-base font-extrabold font-[family-name:var(--font-montserrat)] text-[var(--color-cta-base)]"
                     >
                       {stat.value}
                     </span>
@@ -507,14 +429,11 @@ function ProjectModal({
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[12px] font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden relative"
-              style={{
-                background: "linear-gradient(135deg, #DC0000, #8B0000)",
-              }}
+              className="btn-primary-mype gap-2"
             >
-              <span className="relative z-10 text-white">Visitar Sitio Web</span>
+              <span>Visitar Sitio Web</span>
               <svg
-                className="relative z-10 h-3.5 w-3.5 text-white transition-transform duration-300 group-hover:translate-x-1"
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -526,31 +445,12 @@ function ProjectModal({
                   d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                 />
               </svg>
-              <div
-                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                style={{
-                  background: "linear-gradient(135deg, #8B0000, #FF4444)",
-                }}
-              />
             </a>
 
             <a
               href="#contactanos"
               onClick={onClose}
-              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[12px] font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)]"
-              style={{
-                color: "rgba(255,255,255,0.5)",
-                border: "1px solid rgba(1, 253, 254, 0.15)",
-                background: "rgba(1, 253, 254, 0.04)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.4)";
-                e.currentTarget.style.color = "#DC0000";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.15)";
-                e.currentTarget.style.color = "rgba(255,255,255,0.5)";
-              }}
+              className="btn-secondary-mype gap-2 w-full sm:w-auto"
             >
               Quiero algo similar
             </a>
@@ -570,27 +470,13 @@ export default function Proyectos() {
 
   return (
     <>
-      <section id="proyectos" className="relative py-20 overflow-hidden">
-        {/* Background ambient glows - mejorados */}
+      <section id="proyectos" className="relative py-20 overflow-hidden bg-[var(--color-bg-primary)]">
+        {/* Background ambient glows - suaves */}
         <div
-          className="absolute top-1/4 right-0 w-[600px] h-[500px] opacity-20 pointer-events-none animate-pulse-slow"
+          className="absolute top-1/4 right-0 w-[600px] h-[500px] opacity-5 pointer-events-none animate-pulse-slow"
           style={{
-            background: "radial-gradient(circle, #DC0000 0%, #8B0000 40%, transparent 70%)",
+            background: "radial-gradient(circle, var(--color-accent-base) 0%, transparent 70%)",
             filter: "blur(120px)",
-          }}
-        />
-        <div
-          className="absolute bottom-1/4 left-0 w-[500px] h-[400px] opacity-18 pointer-events-none animate-pulse-slower"
-          style={{
-            background: "radial-gradient(circle, #FF4444 0%, #DC0000 30%, transparent 70%)",
-            filter: "blur(100px)",
-          }}
-        />
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] opacity-12 pointer-events-none animate-spin-very-slow"
-          style={{
-            background: "conic-gradient(from 0deg, transparent, #DC0000, transparent 180deg, #8B0000, transparent)",
-            filter: "blur(140px)",
           }}
         />
 
@@ -599,20 +485,16 @@ export default function Proyectos() {
           <div className="text-center mb-14">
             <div className="flex justify-center mb-3">
               <span
-                className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-                style={{ color: "#DC0000" }}
+                className="text-accent-mype text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
               >
                 Portafolio
               </span>
             </div>
 
             <h2 className="text-center text-3xl font-extrabold tracking-tight uppercase sm:text-4xl lg:text-5xl font-[family-name:var(--font-montserrat)]">
-              <span className="text-white">NUESTROS </span>
+              <span className="text-[var(--color-text-primary)]">NUESTROS </span>
               <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
-                }}
+                className="text-[var(--color-cta-base)]"
               >
                 PROYECTOS
               </span>
@@ -620,10 +502,10 @@ export default function Proyectos() {
 
             <div
               className="mx-auto mt-4 mb-6 h-[2px] w-12"
-              style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
+              style={{ background: "var(--color-cta-base)" }}
             />
 
-            <p className="mx-auto max-w-xl text-center text-sm leading-6 text-white/40 sm:text-base font-[family-name:var(--font-open-sans)]">
+            <p className="mx-auto max-w-xl text-center text-sm leading-6 text-[var(--color-text-secondary)] sm:text-base font-[family-name:var(--font-open-sans)]">
               Cada proyecto refleja nuestra pasión por el diseño estratégico y los
               resultados medibles.
             </p>
@@ -647,32 +529,11 @@ export default function Proyectos() {
             <div className="mt-12 flex justify-center">
               <button
                 onClick={() => setShowAll(true)}
-                className="group relative inline-flex items-center gap-3 rounded-full px-8 py-3.5 text-[13px] font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden cursor-pointer"
-                style={{
-                  border: "1px solid rgba(1, 253, 254, 0.2)",
-                  background: "rgba(1, 253, 254, 0.04)",
-                  color: "rgba(255,255,255,0.7)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.5)";
-                  e.currentTarget.style.color = "#DC0000";
-                  e.currentTarget.style.background = "rgba(1, 253, 254, 0.1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(1, 253, 254, 0.2)";
-                  e.currentTarget.style.color = "rgba(255,255,255,0.7)";
-                  e.currentTarget.style.background = "rgba(1, 253, 254, 0.04)";
-                }}
+                className="btn-primary-mype gap-2"
               >
-                <div
-                  className="absolute -inset-3 rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"
-                  style={{
-                    background: "linear-gradient(135deg, #DC0000, #8B0000)",
-                  }}
-                />
-                <span className="relative z-10">Ver más proyectos</span>
+                <span>Ver más proyectos</span>
                 <svg
-                  className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

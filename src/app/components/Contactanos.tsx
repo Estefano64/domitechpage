@@ -6,9 +6,7 @@ const servicios = [
   "Desarrollo Web",
   "Tiendas Online (Shopify & E-commerce)",
   "Diseño Gráfico",
-  "Edición de Video",
   "Gestión de Redes Sociales",
-  "Google Maps & Google My Business",
   "Marketing Digital",
   "Optimización SEO",
 ];
@@ -39,37 +37,31 @@ export default function Contactanos() {
       `https://wa.me/51915961315?text=${encodeURIComponent(msg)}`,
       "_blank"
     );
+    setForm({
+      nombres: "",
+      empresa: "",
+      correo: "",
+      codPais: "+51",
+      numero: "",
+      servicio: "",
+      idea: "",
+    });
   };
 
   const inputBase =
-    "w-full bg-transparent border-b border-white/15 pb-1.5 pt-2.5 text-[13px] text-white placeholder-white/30 outline-none transition-all duration-300 focus:border-[#DC0000] font-[family-name:var(--font-open-sans)]";
+    "w-full bg-transparent border-b border-[var(--color-border)] pb-1.5 pt-2.5 text-[13px] text-[var(--color-text-primary)] placeholder-slate-400 outline-none transition-all duration-300 focus:border-[var(--color-cta-base)] font-[family-name:var(--font-open-sans)]";
 
   return (
     <section
       id="contactanos"
-      className="relative py-12 sm:py-14 overflow-hidden"
-      style={{ background: "#0A0A0A" }}
+      className="relative py-12 sm:py-14 overflow-hidden bg-[var(--color-bg-alt)]"
     >
-      {/* Ambient glows - más intensos */}
+      {/* Ambient glows - suaves */}
       <div
-        className="absolute top-1/4 left-0 w-[500px] h-[500px] opacity-20 pointer-events-none animate-pulse-slow"
+        className="absolute top-1/4 left-0 w-[500px] h-[500px] opacity-10 pointer-events-none animate-pulse-slow"
         style={{
-          background: "radial-gradient(circle, #DC0000 0%, #8B0000 40%, transparent 70%)",
+          background: "radial-gradient(circle, var(--color-accent-base) 0%, transparent 70%)",
           filter: "blur(120px)",
-        }}
-      />
-      <div
-        className="absolute bottom-1/4 right-0 w-[450px] h-[450px] opacity-18 pointer-events-none animate-pulse-slower"
-        style={{
-          background: "radial-gradient(circle, #FF4444 0%, #DC0000 30%, transparent 70%)",
-          filter: "blur(100px)",
-        }}
-      />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-10 pointer-events-none animate-spin-very-slow"
-        style={{
-          background: "conic-gradient(from 0deg, transparent, #DC0000, transparent)",
-          filter: "blur(130px)",
         }}
       />
 
@@ -77,27 +69,22 @@ export default function Contactanos() {
         {/* Header */}
         <div className="flex justify-center mb-3">
           <span
-            className="text-[10px] font-semibold tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
-            style={{ color: "#DC0000" }}
+            className="text-accent-mype text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-montserrat)]"
           >
-            Hablemos
+            Cotizar
           </span>
         </div>
         <h2 className="text-center text-2xl font-extrabold tracking-tight uppercase sm:text-3xl lg:text-4xl font-[family-name:var(--font-montserrat)]">
-          <span className="text-white">CONTÁCTA</span>
+          <span className="text-[var(--color-text-primary)]">CONTÁCTA</span>
           <span
-            className="bg-clip-text text-transparent"
-            style={{
-              backgroundImage:
-                "linear-gradient(135deg, #DC0000, #8B0000, #FF4444)",
-            }}
+            className="text-[var(--color-cta-base)]"
           >
             NOS
           </span>
         </h2>
         <div
           className="mx-auto mt-3 mb-8 h-[2px] w-12"
-          style={{ background: "linear-gradient(90deg, #DC0000, #8B0000)" }}
+          style={{ background: "var(--color-cta-base)" }}
         />
 
         {/* Two-column layout */}
@@ -105,25 +92,18 @@ export default function Contactanos() {
           {/* Left — Image + socials */}
           <div className="relative">
             <div
-              className="relative rounded-2xl overflow-hidden"
+              className="relative rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
               style={{
-                border: "1px solid rgba(220, 0, 0, 0.08)",
+                border: "1px solid var(--color-border)",
               }}
             >
               <img
-                src="/contactanos.webp"
+                src="/Imagenes-Fondo/Imagen-Contacto.webp"
                 alt="Domitech Solutions - Contáctanos"
                 className="w-full h-auto object-cover"
               />
 
-              {/* Gradient overlay bottom */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-1/3"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(10,10,10,0.9), transparent)",
-                }}
-              />
+
             </div>
 
             {/* Social icons — floating on right edge */}
@@ -139,7 +119,7 @@ export default function Contactanos() {
                   ),
                 },
                 {
-                  href: "https://www.facebook.com/domitechsolutions",
+                  href: "https://www.facebook.com/profile.php?id=61574933230049",
                   label: "Facebook",
                   icon: (
                     <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
@@ -159,23 +139,7 @@ export default function Contactanos() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex items-center justify-center h-11 w-11 rounded-lg transition-all duration-300 hover:scale-110"
-                  style={{
-                    background: "linear-gradient(135deg, #8B0000, #DC0000)",
-                    boxShadow: "0 4px 15px rgba(220, 0, 0, 0.4)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, #DC0000, #FF0000)";
-                    e.currentTarget.style.boxShadow =
-                      "0 4px 20px rgba(220, 0, 0, 0.5)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, #8B0000, #DC0000)";
-                    e.currentTarget.style.boxShadow =
-                      "0 4px 15px rgba(220, 0, 0, 0.4)";
-                  }}
+                  className="flex items-center justify-center h-11 w-11 rounded-lg transition-all duration-300 hover:scale-110 bg-[var(--color-cta-base)] text-white shadow-sm hover:shadow-md"
                 >
                   <svg
                     className="h-5 w-5 text-white"
@@ -199,17 +163,11 @@ export default function Contactanos() {
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <div
-                    className="text-2xl sm:text-3xl font-extrabold font-[family-name:var(--font-montserrat)]"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #DC0000, #8B0000)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
+                    className="text-2xl sm:text-3xl font-extrabold font-[family-name:var(--font-montserrat)] text-[var(--color-cta-base)]"
                   >
                     {stat.value}
                   </div>
-                  <div className="text-xs text-white/40 font-medium tracking-wider uppercase font-[family-name:var(--font-montserrat)]">
+                  <div className="text-xs text-[var(--color-text-secondary)] font-medium tracking-wider uppercase font-[family-name:var(--font-montserrat)]">
                     {stat.label}
                   </div>
                 </div>
@@ -217,9 +175,9 @@ export default function Contactanos() {
             </div>
 
             {/* Description */}
-            <p className="text-[13px] leading-6 text-white/45 mb-5 font-[family-name:var(--font-open-sans)]">
+            <p className="text-[13px] leading-6 text-[var(--color-text-secondary)] mb-5 font-[family-name:var(--font-open-sans)]">
               ¿Buscas llevar tu presencia en línea al siguiente nivel? En{" "}
-              <span className="font-semibold" style={{ color: "#DC0000" }}>
+              <span className="font-semibold text-[var(--color-cta-base)]">
                 Domitech Solutions
               </span>
               , creamos experiencias digitales impactantes. Desde páginas web y
@@ -323,14 +281,11 @@ export default function Contactanos() {
               {/* Submit */}
               <button
                 type="submit"
-                className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[12px] font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden cursor-pointer"
-                style={{
-                  background: "linear-gradient(135deg, #DC0000, #8B0000)",
-                }}
+                className="btn-primary-mype gap-2 w-full sm:w-auto"
               >
-                <span className="relative z-10 text-white">Enviar Mensaje</span>
+                <span>Enviar Mensaje</span>
                 <svg
-                  className="relative z-10 h-4 w-4 text-white transition-transform duration-300 group-hover:translate-x-1"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -342,18 +297,6 @@ export default function Contactanos() {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-                <div
-                  className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{
-                    background: "linear-gradient(135deg, #8B0000, #FF4444)",
-                  }}
-                />
-                <div
-                  className="absolute -inset-2 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-40"
-                  style={{
-                    background: "linear-gradient(135deg, #DC0000, #FF0000)",
-                  }}
-                />
               </button>
             </form>
           </div>

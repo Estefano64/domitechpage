@@ -1,47 +1,42 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { useState, useEffect } from "react";
 import Typewriter from "./Typewriter";
 
-const Hologram = dynamic(() => import("./Hologram"), { ssr: false });
-const AnimatedParticles = dynamic(() => import("./AnimatedParticles"), { ssr: false });
+const backgroundImages = [
+  "/Imagenes-Fondo/Programmer-1.webp",
+  "/Imagenes-Fondo/Programmer-2.webp",
+  "/Imagenes-Fondo/Programmer-3.webp",
+  "/Imagenes-Fondo/Programmer-4.webp",
+];
 
 export default function HeroSection() {
+  const [currentBg, setCurrentBg] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % backgroundImages.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <section
-      className="relative flex h-[calc(100vh-64px)] items-center overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #0A0A0A 0%, #1a0a0a 50%, #0A0A0A 100%)" }}
+      className="relative flex h-[calc(100vh-64px)] items-center overflow-hidden bg-[#171e24]"
     >
-      {/* Hologram background */}
-      <Hologram />
-
-      {/* Animated Particles */}
-      <div className="absolute inset-0 z-0">
-        <AnimatedParticles />
-      </div>
-
-      {/* Ambient glow spots - más intensos y animados */}
-      <div
-        className="absolute top-1/4 right-1/4 w-[600px] h-[600px] opacity-25 pointer-events-none animate-pulse-slow"
-        style={{
-          background: "radial-gradient(circle, #DC0000 0%, #8B0000 40%, transparent 70%)",
-          filter: "blur(100px)",
-        }}
-      />
-      <div
-        className="absolute bottom-1/3 left-1/3 w-[400px] h-[400px] opacity-20 pointer-events-none animate-pulse-slower"
-        style={{
-          background: "radial-gradient(circle, #FF4444 0%, #DC0000 30%, transparent 70%)",
-          filter: "blur(80px)",
-        }}
-      />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-10 pointer-events-none animate-spin-very-slow"
-        style={{
-          background: "conic-gradient(from 0deg, transparent, #DC0000, transparent 180deg, #8B0000, transparent)",
-          filter: "blur(120px)",
-        }}
-      />
+      {/* Rotating Background Images */}
+      {backgroundImages.map((src, index) => (
+        <div
+          key={src}
+          className={`absolute inset-0 z-0 transition-opacity duration-[3000ms] ease-in-out ${index === currentBg ? "opacity-100" : "opacity-0"
+            }`}
+          style={{
+            backgroundImage: `url('${src}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+      ))}
 
       {/* Gradient overlays */}
       <div
@@ -71,11 +66,11 @@ export default function HeroSection() {
           >
             <span
               className="h-1.5 w-1.5 rounded-full animate-pulse"
-              style={{ background: "#DC0000" }}
+              style={{ background: "#ff0124" }}
             />
             <span
               className="text-[11px] font-semibold tracking-[0.2em] uppercase font-[family-name:var(--font-montserrat)]"
-              style={{ color: "#DC0000" }}
+              style={{ color: "#ff0124" }}
             >
               Agencia Digital en Arequipa
             </span>
@@ -85,34 +80,37 @@ export default function HeroSection() {
           <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] font-[family-name:var(--font-montserrat)]">
             Estrategias Digitales
             <br />
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, #DC0000 0%, #8B0000 50%, #FF4444 100%)",
-              }}
-            >
-              <Typewriter
-                words={[
-                  "DE CLASE MUNDIAL",
-                  "QUE GENERAN RESULTADOS",
-                  "PARA TU CRECIMIENTO",
-                  "CON VISIÓN DE FUTURO",
-                ]}
-                typingSpeed={70}
-                deletingSpeed={35}
-                pauseTime={2500}
-              />
+            <span className="inline-flex items-center justify-center lg:justify-start min-h-[2.2em] w-full lg:w-auto">
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(135deg, var(--color-cta-base) 0%, var(--color-cta-hover) 100%)",
+                }}
+              >
+                <Typewriter
+                  words={[
+                    "CONVERSIÓN",
+                    "DE CLASE MUNDIAL",
+                    "QUE GENERAN RESULTADOS",
+                    "PARA TU CRECIMIENTO",
+                    "CON VISIÓN DE FUTURO",
+                  ]}
+                  typingSpeed={70}
+                  deletingSpeed={35}
+                  pauseTime={2500}
+                />
+              </span>
             </span>
             <br />
-            <span className="text-white/40">en Arequipa.</span>
+            <span className="text-white/80">en Arequipa.</span>
           </h1>
 
           {/* Description */}
-          <p className="mt-5 max-w-lg text-sm leading-7 text-white/45 sm:text-base font-[family-name:var(--font-open-sans)]">
+          <p className="mt-5 max-w-lg text-sm leading-7 text-white/70 sm:text-base font-[family-name:var(--font-open-sans)]">
             Hacemos que tu negocio destaque en el ecosistema digital con diseño
             estratégico y resultados reales. Con la gestión de{" "}
-            <span className="font-semibold" style={{ color: "#DC0000" }}>
+            <span className="font-semibold text-[var(--color-accent-base)]">
               Domitech Solutions
             </span>{" "}
             lo conseguimos.
@@ -123,14 +121,11 @@ export default function HeroSection() {
             {/* Primary CTA */}
             <a
               href="#contactanos"
-              className="group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[13px] font-bold tracking-wider text-white uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, #DC0000, #8B0000)",
-              }}
+              className="btn-primary-mype gap-2"
             >
-              <span className="relative z-10">Auditoría Gratuita</span>
+              <span>Auditoría Gratuita</span>
               <svg
-                className="relative z-10 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                className="h-3.5 w-3.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -142,39 +137,12 @@ export default function HeroSection() {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-              <div
-                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                style={{
-                  background: "linear-gradient(135deg, #8B0000, #FF4444)",
-                }}
-              />
-              <div
-                className="absolute -inset-2 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-40"
-                style={{
-                  background: "linear-gradient(135deg, #DC0000, #FF0000)",
-                }}
-              />
             </a>
 
             {/* Secondary CTA */}
             <a
               href="#proyectos"
-              className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[13px] font-bold tracking-wider uppercase backdrop-blur-sm transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)]"
-              style={{
-                color: "rgba(255,255,255,0.6)",
-                border: "1px solid rgba(220, 0, 0, 0.15)",
-                background: "rgba(220, 0, 0, 0.04)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(220, 0, 0, 0.4)";
-                e.currentTarget.style.color = "#DC0000";
-                e.currentTarget.style.background = "rgba(220, 0, 0, 0.08)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(220, 0, 0, 0.15)";
-                e.currentTarget.style.color = "rgba(255,255,255,0.6)";
-                e.currentTarget.style.background = "rgba(220, 0, 0, 0.04)";
-              }}
+              className="group inline-flex items-center justify-center gap-2 rounded-lg px-[2rem] py-[0.875rem] text-[0.875rem] font-bold tracking-[0.05em] uppercase transition-all duration-300 hover:scale-105 font-[family-name:var(--font-montserrat)] text-white border border-white/20 bg-transparent hover:border-[var(--color-cta-base)] hover:text-[var(--color-cta-base)]"
             >
               <span>Ver Portafolio</span>
               <svg
@@ -203,7 +171,7 @@ export default function HeroSection() {
         <div
           className="h-6 w-[1px] animate-pulse"
           style={{
-            background: "linear-gradient(to bottom, #DC0000, transparent)",
+            background: "linear-gradient(to bottom, #ff0124, transparent)",
           }}
         />
       </div>

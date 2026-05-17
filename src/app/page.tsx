@@ -8,10 +8,12 @@ import ProcesoTrabajo from "./components/ProcesoTrabajo";
 import Clientes from "./components/Clientes";
 import FAQ from "./components/FAQ";
 import Contactanos from "./components/Contactanos";
+import Footer from "./components/Footer";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 export default function Home() {
   return (
-    <div style={{ background: "#041020" }}>
+    <div className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
       {/* Hero takes up viewport minus navbar height */}
       <HeroSection />
 
@@ -23,6 +25,7 @@ export default function Home() {
       <Navbar />
 
       {/* Conócenos */}
+      <Conocenos />
 
       {/* Servicios */}
       <Servicios />
@@ -44,6 +47,11 @@ export default function Home() {
 
       {/* Contáctanos */}
       <Contactanos />
+
+      <Footer />
+
+      {/* Botón flotante de WhatsApp */}
+      <FloatingWhatsApp />
     </div>
   );
 }

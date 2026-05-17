@@ -32,7 +32,7 @@ export default function AnimatedParticles() {
 
     // Create particles
     const particles: Particle[] = [];
-    const colors = ["#DC0000", "#8B0000", "#FF4444", "#FF0000"];
+    const colors = ["#ff0124", "#ff0124", "#ff0124", "#ff0124"];
     const particleCount = 40;
 
     for (let i = 0; i < particleCount; i++) {

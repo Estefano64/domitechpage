@@ -1,15 +1,34 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Conthrax';
+  src: url('/fonts/Conthrax-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #0A0A0A;
-  --foreground: #ffffff;
+  /* TEMA: Crecimiento MYPE - Estilos Base */
+  --color-bg-primary: #FFFFFF;
+  --color-text-primary: #334155;
+  --color-text-secondary: #64748B;
+  --color-cta-base: #ff0124;
+  --color-cta-hover: #d0001d;
+  --color-accent-base: #D97706;
+  --color-accent-hover: #B45309;
+  --color-border: #E2E8F0;
+  --color-bg-alt: #F8FAFC;
+
+  --background: var(--color-bg-primary);
+  --foreground: var(--color-text-primary);
 
   /* Domitech Brand Colors */
-  --rojo-corporativo: #DC0000;
-  --rojo-oscuro: #8B0000;
+  --rojo-corporativo: #ff0124;
+  --rojo-oscuro: #ff0124;
   --negro-profundo: #0A0A0A;
-  --rojo-brillante: #FF0000;
-  --rojo-intenso: #FF4444;
+  --rojo-brillante: #ff0124;
+  --rojo-intenso: #ff0124;
   --blanco-puro: #ffffff;
 }
 
@@ -25,13 +44,15 @@
 }
 
 body {
-  background: var(--negro-profundo);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-open-sans), "Open Sans", sans-serif;
+  /* Override Next.js font variable to use Conthrax everywhere titles are used */
+  --font-montserrat: "Conthrax", sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-family: var(--font-montserrat);
 }
 
 /* Loading screen animations */
@@ -251,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: background 0.5s ease;
 }
 .service-card:hover::before {
-  background: linear-gradient(135deg, #DC0000, #8B0000, #FF4444);
+  background: linear-gradient(135deg, #ff0124, #ff0124, #ff0124);
 }
 
 /* ─── Testimonial Stack Cards ─── */
@@ -287,17 +308,17 @@ h1, h2, h3, h4, h5, h6 {
 /* Permanent outer glow using accent variable */
 .testimonial-card {
   box-shadow:
-    0 0 20px color-mix(in srgb, var(--card-accent, #DC0000) 12%, transparent),
-    0 0 50px color-mix(in srgb, var(--card-accent, #DC0000) 6%, transparent),
+    0 0 20px color-mix(in srgb, var(--card-accent, #ff0124) 12%, transparent),
+    0 0 50px color-mix(in srgb, var(--card-accent, #ff0124) 6%, transparent),
     0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 /* Stronger glow on hover */
 .testimonial-card:hover {
-  border-color: color-mix(in srgb, var(--card-accent, #DC0000) 35%, transparent);
+  border-color: color-mix(in srgb, var(--card-accent, #ff0124) 35%, transparent);
   box-shadow:
-    0 0 30px color-mix(in srgb, var(--card-accent, #DC0000) 25%, transparent),
-    0 0 70px color-mix(in srgb, var(--card-accent, #DC0000) 12%, transparent),
+    0 0 30px color-mix(in srgb, var(--card-accent, #ff0124) 25%, transparent),
+    0 0 70px color-mix(in srgb, var(--card-accent, #ff0124) 12%, transparent),
     0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
@@ -453,4 +474,102 @@ select option {
 
 .marquee-item {
   flex-shrink: 0;
+}
+
+/* ==========================================================================
+   TEMA: Crecimiento MYPE - Componentes Adicionales
+   ========================================================================== */
+.container-mype {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.card-mype {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-mype:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary-mype {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-cta-base);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: var(--font-montserrat);
+  box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.2);
+}
+
+.btn-primary-mype:hover {
+  background-color: var(--color-cta-hover);
+  transform: scale(1.02);
+  box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.3);
+}
+
+.btn-primary-mype:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary-mype {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: var(--font-montserrat);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary-mype:hover {
+  color: var(--color-cta-base);
+  border-color: var(--color-cta-base);
+  box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.2);
+  background-color: #ffffff;
+  transform: scale(1.02);
+}
+
+.btn-secondary-mype:active {
+  transform: scale(0.98);
+}
+
+.text-accent-mype {
+  color: var(--color-accent-base);
+  font-weight: 600;
+}
+
+.alert-warning-mype {
+  background-color: #FEF3C7;
+  color: var(--color-accent-hover);
+  border-left: 4px solid var(--color-accent-base);
+  padding: 1rem;
+  border-radius: 4px;
 }

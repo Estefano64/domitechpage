@@ -40,23 +40,23 @@ export default function Hologram() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Central node — Rojo Corporativo #DC0000
+    // Central node — Rojo Corporativo #ff0124
     const centralGeometry = new THREE.IcosahedronGeometry(1.5, 1);
     const centralMaterial = new THREE.MeshBasicMaterial({
-      color: 0xdc0000,
+      color: 0xff0124,
       wireframe: true,
       transparent: true,
       opacity: 0.5,
     });
     const centralNode = new THREE.Mesh(centralGeometry, centralMaterial);
-    const pointLight = new THREE.PointLight(0xdc0000, 2, 20);
+    const pointLight = new THREE.PointLight(0xff0124, 2, 20);
     centralNode.add(pointLight);
     scene.add(centralNode);
 
-    // Instanced orbiting nodes — Rojo Oscuro #8B0000
+    // Instanced orbiting nodes — Rojo Oscuro #ff0124
     const nodeGeometry = new THREE.BoxGeometry(0.25, 0.25, 0.25);
     const nodeMaterial = new THREE.MeshBasicMaterial({
-      color: 0x8b0000,
+      color: 0xff0124,
       transparent: true,
       opacity: 0.8,
     });
