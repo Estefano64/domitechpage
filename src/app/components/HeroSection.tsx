@@ -78,7 +78,7 @@ export default function HeroSection() {
 
           {/* Heading */}
           <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] font-[family-name:var(--font-montserrat)]">
-            Estrategias Digitales
+            Hacemos Crecer
             <br />
             <span className="inline-flex items-center justify-center lg:justify-start min-h-[2.2em] w-full lg:w-auto">
               <span
@@ -90,11 +90,11 @@ export default function HeroSection() {
               >
                 <Typewriter
                   words={[
-                    "CONVERSIÓN",
-                    "DE CLASE MUNDIAL",
-                    "QUE GENERAN RESULTADOS",
-                    "PARA TU CRECIMIENTO",
-                    "CON VISIÓN DE FUTURO",
+                    "TU NEGOCIO",
+                    "TU MARCA EN REDES",
+                    "TUS VENTAS ONLINE",
+                    "TU PRESENCIA DIGITAL",
+                    "TU EMPRESA AL SIGUIENTE NIVEL",
                   ]}
                   typingSpeed={70}
                   deletingSpeed={35}
@@ -103,13 +103,14 @@ export default function HeroSection() {
               </span>
             </span>
             <br />
-            <span className="text-white/80">en Arequipa.</span>
+            <span className="text-white/80">Si no estás en redes, no existes.</span>
           </h1>
 
           {/* Description */}
           <p className="mt-5 max-w-lg text-sm leading-7 text-white/70 sm:text-base font-[family-name:var(--font-open-sans)]">
-            Hacemos que tu negocio destaque en el ecosistema digital con diseño
-            estratégico y resultados reales. Con la gestión de{" "}
+            Damos el siguiente paso contigo: llevamos a tu empresa al mundo
+            digital con estrategias que generan clientes y ventas reales. Con la
+            gestión de{" "}
             <span className="font-semibold text-[var(--color-accent-base)]">
               Domitech Solutions
             </span>{" "}

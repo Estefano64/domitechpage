@@ -14,7 +14,7 @@ export default function FAQ() {
     {
       pregunta: "¿Cuál es el costo de un sitio web profesional?",
       respuesta:
-        "Nuestros proyectos empiezan desde S/. 1,500 para landing pages hasta S/. 8,000+ para e-commerce completos. El precio depende de funcionalidades, diseño personalizado, integraciones y complejidad técnica. Ofrecemos cotizaciones transparentes sin costos ocultos y opciones de pago flexibles para startups y PyMEs.",
+        "Cada proyecto es único, por eso trabajamos con cotizaciones personalizadas según tus objetivos, funcionalidades, diseño y nivel de complejidad. Tras una breve conversación entendemos lo que necesitas y te enviamos una propuesta clara, sin costos ocultos y con opciones de pago flexibles. Agenda una asesoría gratuita y te damos un presupuesto a la medida.",
     },
     {
       pregunta: "¿Incluyen el hosting y dominio?",

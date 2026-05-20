@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "Conócenos", href: "#conocenos" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Testimonios", href: "#testimonios" },
-  { label: "Clientes", href: "#clientes" },
+  { label: "Conócenos", href: "/#conocenos" },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Proyectos", href: "/#proyectos" },
+  { label: "Blog", href: "/blog" },
+  { label: "Clientes", href: "/#clientes" },
 ];
 
 export default function Navbar() {
@@ -85,7 +85,7 @@ export default function Navbar() {
 
         {/* CTA desktop */}
         <a
-          href="#contactanos"
+          href="/#contactanos"
           className="hidden btn-primary-mype xl:inline-flex gap-2 !px-6 !py-3 !text-xs"
         >
           <span>Cotizar</span>
@@ -141,7 +141,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contactanos"
+            href="/#contactanos"
             onClick={() => setMobileOpen(false)}
             className="mt-3 w-full btn-primary-mype text-center block"
           >

@@ -64,45 +64,6 @@ const projects: Project[] = [
     ],
     techs: ["HTML5", "CSS3", "JavaScript", "Google Reviews API"],
   },
-  {
-    title: "X Trail Series - Plataforma Digital",
-    category: "Marketing & Events",
-    url: "https://xtrailseries.com/",
-    description:
-      "Plataforma web de inscripción automatizada para eventos deportivos con mejora de UX y reducción de carga operativa manual. Estrategia de contenidos multiplataforma y gestión de redes sociales para maximizar alcance del evento.",
-    stats: [
-      { label: "Alcance digital", value: "150K+" },
-      { label: "Engagement", value: "+420%" },
-      { label: "Inscripciones online", value: "3.5K+" },
-    ],
-    techs: ["WordPress", "Social Media APIs", "Google Analytics", "Mailchimp"],
-  },
-  {
-    title: "Landing Page - Campaña Digital",
-    category: "Marketing Digital",
-    url: "https://hsec-peru.com/",
-    description:
-      "Landing page de alta conversión para campaña publicitaria con diseño enfocado en CTAs, formularios optimizados, integración con CRM y tracking avanzado de conversiones. A/B testing y optimización continua de rendimiento.",
-    stats: [
-      { label: "Tasa conversión", value: "14.2%" },
-      { label: "CTR anuncios", value: "9.1%" },
-      { label: "ROI campaña", value: "6.3x" },
-    ],
-    techs: ["HTML/CSS", "JavaScript", "Google Ads", "Facebook Pixel"],
-  },
-  {
-    title: "Sistema de Gestión Académica",
-    category: "Software Empresarial",
-    url: "https://andesultra.com/",
-    description:
-      "Sistema web para gestión de matrículas, notas, asistencia y reportes académicos. Incluye módulos para estudiantes, docentes y administración con roles personalizados y generación automática de certificados.",
-    stats: [
-      { label: "Estudiantes gestionados", value: "1.5K+" },
-      { label: "Tiempo ahorro admin", value: "55%" },
-      { label: "Satisfacción usuarios", value: "4.8/5" },
-    ],
-    techs: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
-  },
 ];
 
 /* ───────────── Project Card ───────────── */
@@ -463,7 +424,6 @@ function ProjectModal({
 
 /* ───────────── Main Section ───────────── */
 export default function Proyectos() {
-  const [showAll, setShowAll] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const closeModal = useCallback(() => setSelectedProject(null), []);
@@ -518,36 +478,11 @@ export default function Proyectos() {
                 key={i}
                 project={project}
                 index={i}
-                visible={i < 4 || showAll}
+                visible={true}
                 onClick={() => setSelectedProject(project)}
               />
             ))}
           </div>
-
-          {/* "Ver más" button */}
-          {!showAll && (
-            <div className="mt-12 flex justify-center">
-              <button
-                onClick={() => setShowAll(true)}
-                className="btn-primary-mype gap-2"
-              >
-                <span>Ver más proyectos</span>
-                <svg
-                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-            </div>
-          )}
         </div>
       </section>
 

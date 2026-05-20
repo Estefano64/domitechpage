@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#171e24] pt-16 pb-8 border-t border-white/5 text-gray-400">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16 text-center md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16 text-center md:text-left">
           {/* Columna 1: Logo */}
           <div className="flex items-center justify-center md:justify-start lg:pr-4">
             <Image
@@ -18,7 +18,54 @@ export default function Footer() {
             />
           </div>
 
-          {/* Columna 2: Políticas y Redes */}
+          {/* Columna 2: Navegación */}
+          <div>
+            <h3 className="text-white font-bold mb-4 font-[family-name:var(--font-montserrat)]">Navegación</h3>
+            <ul className="space-y-3 text-[14px] font-[family-name:var(--font-open-sans)]">
+              <li>
+                <a href="/#conocenos" className="hover:text-[var(--color-cta-base)] transition-colors">
+                  Conócenos
+                </a>
+              </li>
+              <li>
+                <a href="/#servicios" className="hover:text-[var(--color-cta-base)] transition-colors">
+                  Servicios
+                </a>
+              </li>
+              <li>
+                <a href="/#proyectos" className="hover:text-[var(--color-cta-base)] transition-colors">
+                  Proyectos
+                </a>
+              </li>
+              <li>
+                <a href="/#proceso" className="hover:text-[var(--color-cta-base)] transition-colors">
+                  Nuestro Proceso
+                </a>
+              </li>
+              <li>
+                <a href="/#clientes" className="hover:text-[var(--color-cta-base)] transition-colors">
+                  Clientes
+                </a>
+              </li>
+              <li>
+                <a href="/blog" className="hover:text-[var(--color-cta-base)] transition-colors">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="/#faq" className="hover:text-[var(--color-cta-base)] transition-colors">
+                  Preguntas Frecuentes
+                </a>
+              </li>
+              <li>
+                <a href="/#contactanos" className="hover:text-[var(--color-cta-base)] transition-colors">
+                  Contáctanos
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Columna 3: Políticas y Redes */}
           <div>
             <h3 className="text-white font-bold mb-4 font-[family-name:var(--font-montserrat)]">Políticas</h3>
             <ul className="space-y-3 text-[14px] font-[family-name:var(--font-open-sans)] mb-8">
@@ -77,7 +124,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Columna 3: Visítanos y Correos */}
+          {/* Columna 4: Visítanos y Correos */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-white font-bold mb-4 font-[family-name:var(--font-montserrat)]">Visítanos</h3>
             <div className="flex items-center justify-center md:justify-start gap-3 mb-8 text-gray-400">
@@ -104,7 +151,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Columna 4: Teléfonos */}
+          {/* Columna 5: Teléfonos */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-white font-bold mb-4 font-[family-name:var(--font-montserrat)]">Teléfonos de Contacto</h3>
             <ul className="space-y-3 text-[14px] font-[family-name:var(--font-open-sans)] w-full">
