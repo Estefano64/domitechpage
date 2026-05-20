@@ -5,7 +5,7 @@ import Servicios from "./components/Servicios";
 import PorQueElegirnos from "./components/PorQueElegirnos";
 import Proyectos from "./components/Proyectos";
 import ProcesoTrabajo from "./components/ProcesoTrabajo";
-import Clientes from "./components/Clientes";
+// import Clientes from "./components/Clientes"; // Oculto hasta tener clientes reales
 import FAQ from "./components/FAQ";
 import Contactanos from "./components/Contactanos";
 import Footer from "./components/Footer";
@@ -39,8 +39,8 @@ export default function Home() {
       {/* Proceso de Trabajo */}
       <ProcesoTrabajo />
 
-      {/* Clientes */}
-      <Clientes />
+      {/* Clientes - oculto hasta sumar más clientes */}
+      {/* <Clientes /> */}
 
       {/* FAQ */}
       <FAQ />

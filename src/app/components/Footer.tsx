@@ -43,11 +43,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/#clientes" className="hover:text-[var(--color-cta-base)] transition-colors">
-                  Clientes
-                </a>
-              </li>
-              <li>
                 <a href="/blog" className="hover:text-[var(--color-cta-base)] transition-colors">
                   Blog
                 </a>
